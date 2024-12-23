@@ -3,6 +3,7 @@
     <head>
         <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet"> <!--jetBrains Mono-->
         <meta charset="utf-8">
         <title>AquaPulse 2057</title>
     </head>
@@ -24,6 +25,7 @@
             align-items: center;
             margin: 10px;       
             padding: 5px;
+            height: 20vh;
         }
 
         #titulo-principal {
@@ -53,6 +55,25 @@
             color: green;
         }
 
+        /* Main */
+
+        main {
+            height: 80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .texto-chamativo {
+            font-family: "JetBrains Mono", serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+            color: #fff;
+            margin: 10px;
+            font-size: 40px;
+        }
+
     </style>
     <body>
         <header>
@@ -67,7 +88,10 @@
             </div>
         </header>
         <main>
-            
+            <div>
+                <p class="texto-chamativo" >O futuro da irrigação está aqui</p>
+                <p class="texto-chamativo" style="text-align: center;">Assista agora <a href="#"><i class="bi bi-play-circle"></i></a></p>
+            </div>
         </main>
     </body>
 </html>
