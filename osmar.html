@@ -28,7 +28,8 @@
 
         header, main, #sobre-produto {
             margin: 10px;
-            padding: 5px;
+            padding: 10px;
+            border: 1px solid white;
         }
 
         /* Header */
@@ -37,9 +38,7 @@
             flex-direction: row;
             justify-content: space-between;
             align-items: center;
-            /* margin: 10px; */
             margin-top: 0;
-            /* padding: 5px; */
             height: 10vh;
         }
 
@@ -96,9 +95,11 @@
         #sobre-produto {
             background-color: #0D0D0D;
             height: 100vh;
+            width: 100%;
             display: flex;
             /* margin: 10px; */
             /* padding: 5px; */
+            flex-direction: row;
         }
 
         #titulo-sobre-produto {
@@ -107,6 +108,12 @@
             font-style: normal;
             color: #fff;
             font-size: 35px;
+        }
+
+        .fotos-sobre-produto {
+            width: 10vw;
+            height: 80vh;
+            border: 1px solid white;
         }
 
         /* footer */
@@ -133,7 +140,26 @@
             </div>
         </main>
         <section id="sobre-produto">
-            <h2 id="titulo-sobre-produto">Sobre o Produto</h2>
+            <div class="fotos-sobre-produto">
+                <h2 id="titulo-sobre-produto">Sobre o Produto</h2>
+                <img src="/image.png" alt="image 01" >
+            </div>
+
+            <div class="fotos-sobre-produto">
+                <img src="/image.png" alt="image 02" >
+            </div>
+
+            <div class="fotos-sobre-produto">
+                <img src="/image.png" alt="image 03" >
+            </div>
+
+            <div class="fotos-sobre-produto">
+                <img src="/image.png" alt="image 04" >
+            </div>
+
+            <div class="fotos-sobre-produto">
+                <img src="/image.png" alt="image 05" >
+            </div>
 
         </section>
         <footer>
