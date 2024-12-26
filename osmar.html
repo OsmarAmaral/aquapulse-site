@@ -12,10 +12,23 @@
         * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
         /* body */
         body {
             background-color: #0D0D0D;
+        }
+
+        header, main, #sobre-produto {
+            margin: 10px;
+            padding: 5px;
         }
 
         /* Header */
@@ -24,9 +37,10 @@
             flex-direction: row;
             justify-content: space-between;
             align-items: center;
-            margin: 10px;       
-            padding: 5px;
-            height: 20vh;
+            /* margin: 10px; */
+            margin-top: 0;
+            /* padding: 5px; */
+            height: 10vh;
         }
 
         #titulo-principal {
@@ -60,10 +74,11 @@
         /* Main */
 
         main {
-            height: 80vh;
+            height: 90vh;
             display: flex;
             justify-content: center;
             align-items: center;
+            /* background-image: url(''); */
         }
 
         .texto-chamativo {
@@ -74,6 +89,24 @@
             color: #fff;
             margin: 10px;
             font-size: 40px;
+        }
+
+        /* sobre o produto */
+
+        #sobre-produto {
+            background-color: #0D0D0D;
+            height: 100vh;
+            display: flex;
+            /* margin: 10px; */
+            /* padding: 5px; */
+        }
+
+        #titulo-sobre-produto {
+            font-family: "Bebas Neue", serif;
+            font-weight: 400;
+            font-style: normal;
+            color: #fff;
+            font-size: 35px;
         }
 
         /* footer */
@@ -100,6 +133,7 @@
             </div>
         </main>
         <section id="sobre-produto">
+            <h2 id="titulo-sobre-produto">Sobre o Produto</h2>
 
         </section>
         <footer>
