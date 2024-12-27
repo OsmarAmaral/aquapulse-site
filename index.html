@@ -103,8 +103,9 @@
         }
 
         .boxs {
-            margin-bottom: 10px;
+            margin-top: 10px;
             width: 100%;
+            border-radius: 10px;
         }
 
         #box-titulo-sobre-produto {
@@ -112,7 +113,6 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-right: auto;
         }
 
         #titulo-sobre-produto {
@@ -120,24 +120,20 @@
             font-weight: 400;
             font-style: normal;
             color: #fff;
-            font-size: 55px;
-            margin-left: 45px;
+            font-size: 60px;
             line-height: 45px;
+            text-align: center;
         }
 
         .fotos-sobre-produto {
             width: 90vw;
             height: 90vh;
-            border: 1px solid white;
+            /* border: 1px solid white; */
             margin: 5px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-        }
-
-        #box-coluna1-linha2, #box-coluna1-linha3 {
-            height: 40vh;
         }
 
         /* footer */
@@ -166,24 +162,27 @@
         <section id="sobre-produto">
             <div class="fotos-sobre-produto">
                 <div class="boxs" id="box-titulo-sobre-produto"><h2 id="titulo-sobre-produto">Sobre o Produto</h2></div>
-                <div class="boxs" id="box-coluna1-linha2" style="background-color: pink"></div>
-                <div class="boxs" id="box-coluna1-linha3" style="background-color: purple"></div>
+                <div class="boxs" id="box-coluna1-linha2" style="height: 40vh; background-color: blue"></div>
+                <div class="boxs" id="box-coluna1-linha3" style="height: 40vh; background-color: purple"></div>
             </div>
 
             <div class="fotos-sobre-produto">
-                
+                <div class="boxs" id="box-coluna2-linha1" style="height: 65vh; background-color: blue;"></div>
+                <div class="boxs" id="box-coluna2-linha2" style="height: 25vh; background-color: purple;"></div>
             </div>
 
             <div class="fotos-sobre-produto">
-                
+                <div class="boxs" id="box-coluna3-linha1" style="height: 45vh; background-color: purple;"></div>
+                <div class="boxs" id="box-coluna3-linha2" style="height: 45vh; background-color: purple;"></div>
             </div>
 
             <div class="fotos-sobre-produto">
-                
+                <div class="boxs" id="box-coluna4-linha1" style="height: 90vh; background-color: blue;"></div>
             </div>
 
             <div class="fotos-sobre-produto">
-                
+                <div class="boxs" id="box-coluna5-linha1" style="height: 30vh; background-color: purple;"></div>
+                <div class="boxs" id="box-coluna5-linha2" style="height: 60vh; background-color: blue;"></div>
             </div>
 
         </section>
