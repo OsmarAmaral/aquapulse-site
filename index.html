@@ -102,12 +102,17 @@
             flex-direction: row;
         }
 
+        .boxs {
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
         #box-titulo-sobre-produto {
-            border: 1px solid green;
             height: 20vh;
             display: flex;
             justify-content: center;
-            align-items: center;;
+            align-items: center;
+            margin-right: auto;
         }
 
         #titulo-sobre-produto {
@@ -124,6 +129,14 @@
             height: 90vh;
             border: 1px solid white;
             margin: 5px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #box-coluna1-linha2, #box-coluna1-linha3 {
+            height: 40vh;
         }
 
         /* footer */
@@ -151,25 +164,25 @@
         </main>
         <section id="sobre-produto">
             <div class="fotos-sobre-produto">
-                <div id="box-titulo-sobre-produto"><h2 id="titulo-sobre-produto">Sobre o Produto</h2></div>
-                <div id="box-coluna1-linha2"></div>
-                <div id="box-coluna1-linha3"></div>
+                <div class="boxs" id="box-titulo-sobre-produto"><h2 id="titulo-sobre-produto">Sobre o Produto</h2></div>
+                <div class="boxs" id="box-coluna1-linha2" style="background-color: pink"></div>
+                <div class="boxs" id="box-coluna1-linha3" style="background-color: purple"></div>
             </div>
 
             <div class="fotos-sobre-produto">
-                <img src="" alt="image 02" >
+                
             </div>
 
             <div class="fotos-sobre-produto">
-                <img src="" alt="image 03" >
+                
             </div>
 
             <div class="fotos-sobre-produto">
-                <img src="" alt="image 04" >
+                
             </div>
 
             <div class="fotos-sobre-produto">
-                <img src="" alt="image 05" >
+                
             </div>
 
         </section>
