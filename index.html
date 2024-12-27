@@ -26,7 +26,7 @@
             background-color: #0D0D0D;
         }
 
-        header, main, #sobre-produto {
+        header, main, #sobre-produto, #sobre-projeto {
             margin: 10px;
             padding: 10px;
             border: 1px solid white;
@@ -102,6 +102,17 @@
             flex-direction: row;
         }
 
+        .containers-sobre-produto {
+            width: 90vw;
+            height: 90vh;
+            /* border: 1px solid white; */
+            margin: 5px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
         .boxs {
             margin-top: 10px;
             width: 100%;
@@ -125,15 +136,20 @@
             text-align: center;
         }
 
-        .fotos-sobre-produto {
-            width: 90vw;
-            height: 90vh;
-            /* border: 1px solid white; */
-            margin: 5px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+        /* Sobre o Projeto */
+
+        #sobre-projeto {
+            height: 100vh;
+        }
+
+        #titulo-sobre-projeto {
+            font-family: "Bebas Neue", serif;
+            font-weight: 400;
+            font-style: normal;
+            color: #fff;
+            font-size: 60px;
+            line-height: 45px;
+            text-align: center;
         }
 
         /* footer */
@@ -142,6 +158,9 @@
 
     </style>
     <body>
+
+        <!--Header-->
+
         <header>
             <h1 id="titulo-principal">AquaPulse</h1>
             <div>
@@ -153,39 +172,52 @@
                 <a href="#"><i id="icone-perfil" class="bi bi-person-circle" style="font-size: 35px; color: white;"></i></a>
             </div>
         </header>
+
+        <!--Main-->
+
         <main>
             <div>
                 <p class="texto-chamativo" >O futuro da irrigação está aqui</p>
                 <p class="texto-chamativo" style="text-align: center; font-size: 30px;">Assista agora <a href="#"><i class="bi bi-play-circle" style="font-size: 30px;"></i></a></p>
             </div>
         </main>
+
+        <!--Sobre o Produto-->
+
         <section id="sobre-produto">
-            <div class="fotos-sobre-produto">
+            <div class="containers-sobre-produto">
                 <div class="boxs" id="box-titulo-sobre-produto"><h2 id="titulo-sobre-produto">Sobre o Produto</h2></div>
                 <div class="boxs" id="box-coluna1-linha2" style="height: 40vh; background-color: blue"></div>
                 <div class="boxs" id="box-coluna1-linha3" style="height: 40vh; background-color: purple"></div>
             </div>
 
-            <div class="fotos-sobre-produto">
+            <div class="containers-sobre-produto">
                 <div class="boxs" id="box-coluna2-linha1" style="height: 65vh; background-color: blue;"></div>
                 <div class="boxs" id="box-coluna2-linha2" style="height: 25vh; background-color: purple;"></div>
             </div>
 
-            <div class="fotos-sobre-produto">
+            <div class="containers-sobre-produto">
                 <div class="boxs" id="box-coluna3-linha1" style="height: 45vh; background-color: purple;"></div>
                 <div class="boxs" id="box-coluna3-linha2" style="height: 45vh; background-color: purple;"></div>
             </div>
 
-            <div class="fotos-sobre-produto">
+            <div class="containers-sobre-produto">
                 <div class="boxs" id="box-coluna4-linha1" style="height: 90vh; background-color: blue;"></div>
             </div>
 
-            <div class="fotos-sobre-produto">
+            <div class="containers-sobre-produto">
                 <div class="boxs" id="box-coluna5-linha1" style="height: 30vh; background-color: purple;"></div>
                 <div class="boxs" id="box-coluna5-linha2" style="height: 60vh; background-color: blue;"></div>
             </div>
 
         </section>
+
+        <!--Sobre o projeto-->
+
+        <section id="sobre-projeto">
+            <h2 id="titulo-sobre-projeto">Sobre o Projeto</h2>
+        </section>
+
         <footer>
 
         </footer>
