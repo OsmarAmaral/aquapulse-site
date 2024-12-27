@@ -156,7 +156,10 @@
 
         #comentarios {
             height: 100vh;
-            
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
         }
 
         #titulo-comentarios {
@@ -201,6 +204,13 @@
         /* footer */
 
 
+
+
+        /* icons */
+
+        /* <i class="bi bi-star"></i>  estrela*/
+        /* <i class="bi bi-star-fill"></i> estrela com fundo preenchido*/
+        /* <i class="bi bi-star-half"></i> estrela com meio fundo preenchido*/
 
     </style>
     <body>
@@ -268,9 +278,11 @@
         <!--Comentários-->
 
         <section id="comentarios">
-            <h2 id="titulo-comentarios">Comentários</h2>
+            
 
             <div id="container-comentarios">
+
+            <h2 id="titulo-comentarios">Comentários</h2>
 
             <div class="box-comentario">
                 <i id="icone-perfil" class="bi bi-person-circle" style="font-size: 30px; color: red;"></i>
@@ -300,7 +312,15 @@
             </div>
 
             <div id="big-comentário">
-                <i id="icone-perfil" class="bi bi-person-circle" style="font-size: 30px; color: gray;"></i>
+                <i id="icone-perfil" class="bi bi-person-circle" style="font-size: 30px; color: darkred;"></i>
+                <p id="nome-usuario">Marciele</p>
+                <div class="estrelas">
+                    <i class="bi bi-star-half" style="color: gold"></i>
+                    <i class="bi bi-star" style="color: gold"></i>
+                    <i class="bi bi-star" style="color: gold"></i>
+                    <i class="bi bi-star" style="color: gold"></i>
+                    <i class="bi bi-star" style="color: gold"></i>
+                </div>
             </div>
 
         </section>
