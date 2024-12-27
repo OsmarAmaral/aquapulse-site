@@ -8,6 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>AquaPulse 2057</title>
     </head>
+
     <style>
         * {
             margin: 0;
@@ -157,9 +158,18 @@
         #comentarios {
             height: 100vh;
             display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #comentarios-help {
+            display: flex;
             flex-direction: row;
             justify-content: space-between;
             align-items: center;
+            /* border: 1px solid red; */
+            height: 90vh
         }
 
         #titulo-comentarios {
@@ -175,18 +185,28 @@
         .container-comentarios {
             display: flex;
             flex-direction: column;
+            /* border: 1px solid blue; */
+            height: 90vh;
+            margin: 5px;
+        }
 
+        .container-comentarios-2 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* border: 1px solid blue; */
+            height: 90vh;
         }
 
         .box-comentario {
-            margin: 25px;
+            margin: 10px;
             border: 3px solid green;
             display: flex;
             flex-direction: row;
             align-items: center;
             padding: 5px;
             width: 45vw;
-            height: 4rem;
+            height: 5rem;
             border-radius: 10px;
             background-color: #fff;
         }
@@ -201,6 +221,43 @@
             margin-left: 15px;
         }
 
+        #big-comentario {
+            height: 23.7rem;
+            width: 45vw;
+            border: 3px solid green;
+            border-radius: 10px;
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            margin: 10px;
+        }
+
+        #box-comentario-usuario {
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        #user-comentario {
+            outline: 0;
+            font-family: "JetBrains Mono", serif;
+            font-weight: bold;
+            margin-left: 15px;
+            height: 3rem;
+            width: 30vw;
+            font-size: 20px;
+        }
+
+        #button-comentario {
+            font-family: 'JetBrains Mono';
+            background-color: green;
+            border: 2px solid black;
+            border-radius: 10px;
+            font-size: 20px;
+            padding: 5px;
+            color: #fff;
+        }
+
         /* footer */
 
 
@@ -213,6 +270,7 @@
         /* <i class="bi bi-star-half"></i> estrela com meio fundo preenchido*/
 
     </style>
+
     <body>
 
         <!--Header-->
@@ -279,11 +337,12 @@
 
         <section id="comentarios">
             
-
-            <div id="container-comentarios">
-
             <h2 id="titulo-comentarios">Comentários</h2>
 
+            <div id="comentarios-help">
+
+            <div class="container-comentarios">
+            
             <div class="box-comentario">
                 <i id="icone-perfil" class="bi bi-person-circle" style="font-size: 30px; color: red;"></i>
                 <P class="comentario">Achei super legal, muito bom...</P>
@@ -311,7 +370,9 @@
 
             </div>
 
-            <div id="big-comentário">
+            <div class="container-comentarios-2">
+
+            <div id="big-comentario">
                 <i id="icone-perfil" class="bi bi-person-circle" style="font-size: 30px; color: darkred;"></i>
                 <p id="nome-usuario">Marciele</p>
                 <div class="estrelas">
@@ -323,10 +384,29 @@
                 </div>
             </div>
 
+            <div class="box-comentario" id="box-comentario-usuario">
+                <i id="icone-perfil" class="bi bi-person-circle" style="font-size: 30px; color: purple;"></i> 
+                <input id="user-comentario" type="text" placeholder="digite seu comentário">
+                <button id="button-comentario" type="button" onclick="enviarComentario()">enviar</button>
+            </div>
+
+            </div>
+
+        </div>
+
         </section>
 
         <footer>
 
         </footer>
+
+        <script>
+            function enviarComentario (o) {
+                let comment = document.querySelector('#user-comentario').value;
+                alert(comment)
+
+            }
+        </script>
+
     </body>
 </html>
