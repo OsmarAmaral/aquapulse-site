@@ -26,7 +26,7 @@
             background-color: #0D0D0D;
         }
 
-        header, main, #sobre-produto, #sobre-projeto {
+        header, main, #sobre-produto, #sobre-projeto, #comentarios {
             margin: 10px;
             padding: 10px;
             border: 1px solid white;
@@ -152,6 +152,49 @@
             text-align: center;
         }
 
+        /* Comentários */
+
+        #comentarios {
+            height: 100vh;
+            
+        }
+
+        #titulo-comentarios {
+            font-family: "Bebas Neue", serif;
+            font-weight: 400;
+            font-style: normal;
+            color: #fff;
+            font-size: 50px;
+            line-height: 45px;
+        }
+
+        .container-comentarios {
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        .box-comentario {
+            margin: 10px;
+            border: 1px solid green;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 5px;
+            width: 50rem;
+            border-radius: 10px;
+        }
+
+        .comentario {
+            font-family: "JetBrains Mono", serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 30px;
+            color: #fff;
+            margin-left: 15px;
+        }
+
         /* footer */
 
 
@@ -222,7 +265,32 @@
         <!--Comentários-->
 
         <section id="comentarios">
-            
+            <h2 id="titulo-comentarios">Comentários</h2>
+
+            <div id="container-comentarios">
+
+            <div class="box-comentario">
+                <i id="icone-perfil" class="bi bi-person-circle" style="font-size: 30px; color: white;"></i>
+                <P class="comentario">Achei super legal, muito bom...</P>
+            </div>
+
+            <div class="box-comentario">
+                <i id="icone-perfil" class="bi bi-person-circle" style="font-size: 30px; color: white;"></i>
+                <P class="comentario">Nossa, amei, chegou intacto...</P>
+            </div>
+
+            <div class="box-comentario">
+                <i id="icone-perfil" class="bi bi-person-circle" style="font-size: 30px; color: white;"></i>
+                <P class="comentario">Super útil, ajudou muito no...</P>
+            </div>
+
+            <div class="box-comentario">
+                <i id="icone-perfil" class="bi bi-person-circle" style="font-size: 30px; color: white;"></i>
+                <P class="comentario">Achei super legal, muito bom...</P>
+            </div>
+
+            </div>
+
         </section>
 
         <footer>
