@@ -363,12 +363,12 @@
             <h2 id="titulo-sobre-projeto">Sobre o Projeto</h2>
 
             <div id="timeline">
-                <div class="pontos-importantes" id="ponto-1"></div>
-                <div class="pontos-importantes" id="ponto-2"></div>
-                <div class="pontos-importantes" id="ponto-3"></div>
-                <div class="pontos-importantes" id="ponto-4"></div>
-                <div class="pontos-importantes" id="ponto-5"></div>
-                <div class="pontos-importantes" id="ponto-6"></div>
+                <button class="pontos-importantes" id="ponto-1" type="button" onclick="ponto1()"></button>
+                <button class="pontos-importantes" id="ponto-2" type="button" onclick="ponto2()"></button>
+                <button class="pontos-importantes" id="ponto-3" type="button" onclick="ponto3()"></button>
+                <button class="pontos-importantes" id="ponto-4" type="button" onclick="ponto4()"></button>
+                <button class="pontos-importantes" id="ponto-5" type="button" onclick="ponto5()"></button>
+                <button class="pontos-importantes" id="ponto-6" type="button" onclick="ponto6()"></button>
             </div>
 
         </section>
@@ -444,11 +444,43 @@
         </footer>
 
         <script>
+
+            // envia o comentário para o big-comentario
             function enviarComentario (o) {
                 let comment = document.querySelector('#user-comentario').value;
                 console.log(comment);
                 document.querySelector('#comentario-usuario').textContent = comment;
             }
+
+            function ponto1 () {
+                alert("Criação do projeto !")
+            }
+
+            function ponto2 () {
+                alert("A perca de um mebro !")
+            }
+
+            function ponto3 () {
+                alert("rumo ao ERI-MT!")
+            }
+
+            function ponto4 () {
+                alert("chegada dos novos membros !")
+            }
+
+            function ponto5 () {
+                alert("Ganhamos a FECICTI!")
+            }
+
+            function ponto6 () {
+                alert("dias de hoje !")
+            }
+
+            // impede o úsuario de ultilizar o botão direito do mouse
+            document.addEventListener('contextmenu', function(event) {
+            event.preventDefault(); // Impede o menu de contexto
+            });
+
         </script>
 
     </body>
