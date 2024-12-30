@@ -1,6 +1,4 @@
-// Criação e configuração do botão WhatsApp
 const criarBotaoWhatsApp = () => {
-    // Cria o botão
     const botao = document.createElement('div');
     botao.className = 'whatsapp-button';
     botao.style = `
@@ -26,16 +24,13 @@ const criarBotaoWhatsApp = () => {
     icone.style.fontSize = '30px';
     botao.appendChild(icone);
 
-    // Adiciona evento de clique para abrir o WhatsApp
     botao.addEventListener('click', () => {
         window.open('https://wa.me/5566992524707', '_blank');
     });
 
-    // Adiciona o botão ao body
     document.body.appendChild(botao);
 };
 
-// Adiciona os ícones do Bootstrap Icons
 const carregarBootstrapIcons = () => {
     const link = document.createElement('link');
     link.rel = 'stylesheet';
@@ -43,8 +38,7 @@ const carregarBootstrapIcons = () => {
     document.head.appendChild(link);
 };
 
-// Inicializa o botão
-window.onload = () => {
+document.addEventListener('DOMContentLoaded', () => {
     carregarBootstrapIcons();
     criarBotaoWhatsApp();
-};
+});
