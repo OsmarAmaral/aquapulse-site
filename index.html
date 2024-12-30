@@ -6,7 +6,8 @@
         <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet"> <!--jetBrains Mono-->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="modal.js"></script>
+        <script src="src/js/modal.js"></script>
+        <script src="src/js/whatsApp.js"></script>
         <title>AquaPulse 2057</title>
     </head>
 
@@ -31,7 +32,7 @@
         header, main, #sobre-produto, #sobre-projeto, #comentarios, footer {
             margin: 10px;
             padding: 10px;
-            /* border: 1px solid white; */
+            border: 1px solid white;
         }
 
         /* Header */
@@ -76,11 +77,11 @@
 
         main {
             /* height: 90vh; valor original*/
-            height: 100vh;
+            height: 90vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            background-image: url('image_background.jpg');
+            background-image: url('src/image/image_background.jpg');
             background-size: cover;
         }
 
@@ -341,10 +342,6 @@
                 <p class="texto-chamativo" >O futuro da irrigação está aqui</p>
                 <p class="texto-chamativo" style="text-align: center; font-size: 30px;">Assista agora <a href="#"><i class="bi bi-play-circle" style="font-size: 30px;"></i></a></p>
             </div>
-            <div id="tipos-de-produto">
-                <div class="residencial-e-produtor" style="background-image: url('');"></div>
-                <div class="residencial-e-produtor" style="background-image: url('');"></div>
-            </div>
         </main>
 
         <!--Sobre o Produto-->
@@ -462,11 +459,11 @@
         <footer>
             <p style="color: white"><a href="#" class="links-footer">Termos de uso</a> | <a href="#" class="links-footer">Políticas de Privacidade</a></p>
             <div id="redes-sociais" style="margin: 10px;">
-                <i class="bi bi-google" style="color: green; margin: 5px;"></i>
-                <i class="bi bi-linkedin" style="color: green; margin: 5px;"></i>
-                <i class="bi bi-instagram" style="color: green; margin: 5px;"></i>
-                <i class="bi bi-github" style="color: green; margin: 5px;"></i>
-                <i class="bi bi-youtube" style="color: green; margin: 5px;"></i>
+                <a href="#"><i class="bi bi-google" style="color: green; margin: 5px;"></i></a>
+                <a href="#"><i class="bi bi-linkedin" style="color: green; margin: 5px;"></i></a>
+                <a href="#"><i class="bi bi-instagram" style="color: green; margin: 5px;"></i></a>
+                <a href="#"><i class="bi bi-github" style="color: green; margin: 5px;"></i></a>
+                <a href="#"><i class="bi bi-youtube" style="color: green; margin: 5px;"></i></a>
             </div>
             <p style="color: white;">
                 © 2024 AquaPulse. Todos os direitos reservados.
@@ -476,7 +473,7 @@
         <script>
 
             // envia o comentário para o big-comentario
-            function enviarComentario (o) {
+            function enviarComentario () {
                 let comment = document.querySelector('#user-comentario').value;
                 console.log(comment);
                 document.querySelector('#comentario-usuario').textContent = comment;
