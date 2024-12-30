@@ -1,0 +1,55 @@
+/* 
+
+<header>
+            <h1 id="titulo-principal">AquaPulse</h1>
+            <div>
+                <a class="header-links" href="#" target="_blank">Sobre</a>
+                <a class="header-links" href="#" target="_blank">Serviço</a>
+                <a class="header-links" href="#" target="_blank">Contato</a>
+            </div>
+            <div>
+                <a href="#"><i id="icone-perfil" class="bi bi-person-circle" style="font-size: 35px; color: white;"></i></a>
+            </div>
+        </header>
+
+*/
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0;
+    height: 10vh;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid white;
+}
+
+#titulo-principal {
+    font-family: "Bebas Neue", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #fff;
+    font-size: 35px;
+}
+
+.header-links {
+    text-decoration: none;
+    font-family: "Bebas Neue", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #fff;
+    margin: 15px;
+    font-size: 18px;
+    transition: font-size 0.3s ease;
+}
+
+.header-links:hover {
+    border-bottom: 3px solid green;
+    font-size: 20px;
+}
+
+#icone-perfil:hover {
+    color: green;
+}
