@@ -11,7 +11,7 @@ const criarModal = () => {
     conteudo.id = 'conteudo-modal';
     conteudo.style = `
         position: relative; padding: 20px; border-radius: 10px; 
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); background: transparent;
     `;
 
     const botaoFechar = document.createElement('button');
@@ -21,13 +21,11 @@ const criarModal = () => {
         position: absolute; top: 10px; right: 10px; background-color: red; color: white;
         border: none; border-radius: 50%; width: 30px; height: 30px; display: flex;
         justify-content: center; align-items: center; font-size: 20px; cursor: pointer;
-        transition: background-color 0.3s ease;
     `;
-    botaoFechar.onmouseover = () => (botaoFechar.style.backgroundColor = 'darkred');
-    botaoFechar.onmouseout = () => (botaoFechar.style.backgroundColor = 'red');
+    botaoFechar.onclick = () => fecharModal();
 
     const imagem = document.createElement('img');
-    imagem.src ="/src/image/modal.jpeg";
+    imagem.src = "/src/image/modal.jpeg";
     imagem.alt = 'Imagem de introdução';
     imagem.style = 'max-width: 65vw; max-height: 65vh; object-fit: contain; border-radius: 10px;';
 
@@ -38,38 +36,36 @@ const criarModal = () => {
 
     return modal;
 };
-            const inicializarModal = () => {
-    const modal = criarModal();
 
-    // Exibe o modal ao carregar a página
-    setTimeout(() => {
-        modal.style.visibility = 'visible';
-        modal.style.opacity = '1';
-    }, 100);
+const exibirModal = () => {
+    const modal = document.getElementById('sobreposicao-modal');
+    modal.style.visibility = 'visible';
+    modal.style.opacity = '1';
 
-    // Fecha o modal ao clicar no botão
-    const botaoFechar = document.getElementById('botao-fechar');
-    botaoFechar.onclick = () => {
-        modal.style.animation = 'saidaSuave 0.5s ease';
-        setTimeout(() => {
-            modal.style.visibility = 'hidden';
-            modal.style.opacity = '0';
-        }, 500);
-    };
+    // Desabilita o scroll no body
+    document.body.style.overflow = 'hidden';
 
-    // Adiciona animações ao documento
-    const estilo = document.createElement('style');
-    estilo.innerHTML = `
-        @keyframes entradaSuave {
-            from { transform: scale(0.9); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
-
-        @keyframes saidaSuave {
-            from { transform: scale(1); opacity: 1; }
-            to { transform: scale(0.9); opacity: 0; }
-        }
-    `;
-    document.head.appendChild(estilo);
+    const whatsappButton = document.querySelector('.whatsapp-button');
+    if (whatsappButton) whatsappButton.style.display = 'none'; // Oculta o botão WhatsApp
 };
-            window.onload = inicializarModal;
+
+const fecharModal = () => {
+    const modal = document.getElementById('sobreposicao-modal');
+    modal.style.opacity = '0';
+    setTimeout(() => {
+        modal.style.visibility = 'hidden';
+
+        // Reativa o scroll no body
+        document.body.style.overflow = 'auto';
+
+        const whatsappButton = document.querySelector('.whatsapp-button');
+        if (whatsappButton) whatsappButton.style.display = 'flex'; // Reexibe o botão WhatsApp
+    }, 500);
+};
+
+const inicializarModal = () => {
+    criarModal();
+    setTimeout(() => exibirModal(), 1000); // Exibe o modal automaticamente após 1 segundo
+};
+
+document.addEventListener('DOMContentLoaded', inicializarModal);
