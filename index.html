@@ -27,7 +27,7 @@
             background-color: #0D0D0D;
         }
 
-        header, main, #sobre-produto, #sobre-projeto, #comentarios {
+        header, main, #sobre-produto, #sobre-projeto, #comentarios, footer {
             margin: 10px;
             padding: 10px;
             border: 1px solid white;
@@ -291,9 +291,22 @@
 
         /* footer */
 
+        footer {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 20vh;
+        }
 
-
-
+        .links-footer {
+            text-decoration: none;
+            color: white;
+            font-size: 15px;
+            font-family: "JetBrains Mono", serif;
+            margin: 10px;
+        }
+    
         /* icons */
 
         /* <i class="bi bi-star"></i>  estrela*/
@@ -440,7 +453,17 @@
         </section>
 
         <footer>
-
+            <p style="color: white"><a href="#" class="links-footer">Termos de uso</a> | <a href="#" class="links-footer">Políticas de Privacidade</a></p>
+            <div id="redes-sociais" style="margin: 10px;">
+                <i class="bi bi-google" style="color: green; margin: 5px;"></i>
+                <i class="bi bi-linkedin" style="color: green; margin: 5px;"></i>
+                <i class="bi bi-instagram" style="color: green; margin: 5px;"></i>
+                <i class="bi bi-github" style="color: green; margin: 5px;"></i>
+                <i class="bi bi-youtube" style="color: green; margin: 5px;"></i>
+            </div>
+            <p style="color: white;">
+                © 2024 AquaPulse. Todos os direitos reservados.
+            </p>
         </footer>
 
         <script>
