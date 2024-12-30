@@ -6,6 +6,7 @@
         <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet"> <!--jetBrains Mono-->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="modal.js"></script>
         <title>AquaPulse 2057</title>
     </head>
 
@@ -30,7 +31,7 @@
         header, main, #sobre-produto, #sobre-projeto, #comentarios, footer {
             margin: 10px;
             padding: 10px;
-            border: 1px solid white;
+            /* border: 1px solid white; */
         }
 
         /* Header */
@@ -74,11 +75,13 @@
         /* Main */
 
         main {
-            height: 90vh;
+            /* height: 90vh; valor original*/
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            /* background-image: url(''); */
+            background-image: url('image_background.jpg');
+            background-size: cover;
         }
 
         .texto-chamativo {
@@ -337,6 +340,10 @@
             <div>
                 <p class="texto-chamativo" >O futuro da irrigação está aqui</p>
                 <p class="texto-chamativo" style="text-align: center; font-size: 30px;">Assista agora <a href="#"><i class="bi bi-play-circle" style="font-size: 30px;"></i></a></p>
+            </div>
+            <div id="tipos-de-produto">
+                <div class="residencial-e-produtor" style="background-image: url('');"></div>
+                <div class="residencial-e-produtor" style="background-image: url('');"></div>
             </div>
         </main>
 
