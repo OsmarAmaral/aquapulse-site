@@ -21,9 +21,9 @@ header {
     align-items: center;
     margin-top: 0;
     height: 10vh;
-    margin: 10px;
-    padding: 10px;
-    border: 1px solid white;
+    /* margin: 10px; */
+    /* padding: 10px; */
+    /* border: 1px solid white; */
 }
 
 #titulo-principal {
