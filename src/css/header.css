@@ -24,6 +24,8 @@ header {
     /* margin: 10px; */
     /* padding: 10px; */
     /* border: 1px solid white; */
+    /* position: relative; /* chatGPT */
+    /* z-index: 1; /* Garante que o conteúdo fique acima do fundo desfocado , chatGPT*/
 }
 
 #titulo-principal {
