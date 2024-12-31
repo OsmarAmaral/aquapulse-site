@@ -5,7 +5,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: radial-gradient(circle, #0a3d24, #165f3e); /* Fundo com tons de verde escuro */
+    /* background: radial-gradient(circle, #0a3d24, #165f3e);  */
     padding: 20px;
     box-sizing: border-box;
     overflow: hidden;
@@ -20,7 +20,7 @@
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 1%, transparent 50%);
+    /* background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 1%, transparent 50%); */
     background-size: 50px 50px;
     opacity: 0.1;
     animation: moveParticles 10s linear infinite;
