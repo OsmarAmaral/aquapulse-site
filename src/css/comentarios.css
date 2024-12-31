@@ -5,7 +5,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: radial-gradient(circle, #1e3c72, #2a5298);
+    background: radial-gradient(circle, #0a3d24, #165f3e); /* Fundo com tons de verde escuro */
     padding: 20px;
     box-sizing: border-box;
     overflow: hidden;
@@ -41,7 +41,7 @@
     font-family: "Bebas Neue", serif;
     font-weight: 400;
     color: #fff;
-    font-size: 40px;
+    font-size: 80px;
     margin-bottom: 30px;
     text-transform: uppercase;
     letter-spacing: 3px;
@@ -59,14 +59,14 @@
     justify-content: flex-start;
     gap: 10px;
     height: auto;
-    width: 25%; /* Ajuste da largura dos cards */
-    min-height: 300px; /* Altura mínima consistente */
+    width: 25%;
+    min-height: 300px;
     background: linear-gradient(145deg, #ffffff, #f0f0f0);
     border-radius: 15px;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2), -5px -5px 15px rgba(255, 255, 255, 0.7);
     padding: 20px;
     transition: transform 0.4s ease, box-shadow 0.4s ease;
-    margin: 15px; /* Garantir espaçamento entre cards */
+    margin: 15px;
     border: none;
     backdrop-filter: blur(8px);
     position: relative;
@@ -135,7 +135,7 @@
         width: 90%;
         min-height: auto;
         height: auto;
-        margin: 10px; /* Garantir margem em dispositivos menores */
+        margin: 10px;
     }
 
     #titulo-comentarios {
