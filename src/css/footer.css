@@ -1,0 +1,35 @@
+    /* 
+        <footer>
+            <p style="color: white"><a href="#" class="links-footer">Termos de uso</a> | <a href="#" class="links-footer">Políticas de Privacidade</a></p>
+            <div id="redes-sociais" style="margin: 10px;">
+                <a href="#"><i class="bi bi-google" style="color: green; margin: 5px;"></i></a>
+                <a href="#"><i class="bi bi-linkedin" style="color: green; margin: 5px;"></i></a>
+                <a href="#"><i class="bi bi-instagram" style="color: green; margin: 5px;"></i></a>
+                <a href="#"><i class="bi bi-github" style="color: green; margin: 5px;"></i></a>
+                <a href="#"><i class="bi bi-youtube" style="color: green; margin: 5px;"></i></a>
+            </div>
+            <p style="color: white;">
+                © 2024 AquaPulse. Todos os direitos reservados.
+            </p>
+        </footer>
+
+    */
+
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+    /* margin: 10px; */
+    /* padding: 10px; */
+    /* border: 1px solid white; */
+}
+
+.links-footer {
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+    font-family: "JetBrains Mono", serif;
+    margin: 10px;
+}
