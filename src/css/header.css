@@ -1,6 +1,5 @@
 /* 
-
-<header>
+        <header>
             <h1 id="titulo-principal">AquaPulse</h1>
             <div>
                 <a class="header-links" href="#" target="_blank">Sobre</a>
@@ -11,7 +10,6 @@
                 <a href="#"><i id="icone-perfil" class="bi bi-person-circle" style="font-size: 35px; color: white;"></i></a>
             </div>
         </header>
-
 */
 
 header {
