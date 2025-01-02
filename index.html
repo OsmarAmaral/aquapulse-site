@@ -1,183 +1,55 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-    <head>
-        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-        <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet"> <!--jetBrains Mono-->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="src/css/header.css">
-        <link rel="stylesheet" href="src/css/footer.css">
-        <link rel="stylesheet" href="src/css/comentarios.css">
-        <script src="src/js/modal.js"></script>
-        <script src="src/js/whatsApp.js"></script>
-        <script src="src/js/pontosImportantes.js"></script>
-        <title>AquaPulse 2057</title>
-    </head>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet"> <!--jetBrains Mono-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/css/header.css">
+    <link rel="stylesheet" href="src/css/footer.css">
+    <link rel="stylesheet" href="src/css/comentarios.css">
+    <link rel="stylesheet" href="src/css/main.css">
+    <link rel="stylesheet" href="src/css/sobre-produto.css">
+    <link rel="stylesheet" href="src/css/sobre-projeto.css">
+    <script src="src/js/modal.js"></script>
+    <script src="src/js/whatsApp.js"></script>
+    <script src="src/js/pontosImportantes.js"></script>
+    <title>AquaPulse 2057</title>
+</head>
 
-        html, body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-        }
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-        /* body */
-        body {
-            background-color: #0D0D0D;
-        }
+    html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+    }
 
-        header, main, #sobre-produto, #sobre-projeto, #comentarios, footer {
-            /* margin: 10px; */
-            padding: 10px;
-            /* border: 1px solid white; */
-        }
+    body {
+        background-color: #0D0D0D;
+    }
 
-        /* Header */
-        /* <link rel="stylesheet" href="src/css/header.css"> */
+    header, main, #sobre-produto, #sobre-projeto, #comentarios, footer {
+        /* margin: 10px; */     
+        /* border: 1px solid white; */
+        padding: 10px;
+    }
 
-        /* Main */
+</style>
 
-        main {
-            /* height: 90vh; valor original*/
-            height: 90vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            /* background-image: url('src/image/image_background.jpg'); */
-            /* background-size: cover; */
-            /* filter: brightness(70%); */
-        }
+<body>
 
-        .texto-chamativo {
-            font-family: "JetBrains Mono", serif;
-            font-optical-sizing: auto;
-            font-weight: 400;
-            font-style: normal;
-            color: #fff;
-            margin: 10px;
-            font-size: 40px;
-            filter: brightness(100%);
-        }
+    <!--Header-->
 
-        /* sobre o produto */
-
-        #sobre-produto {
-            background-color: #0D0D0D;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            /* margin: 10px; */
-            /* padding: 5px; */
-            flex-direction: row;
-        }
-
-        .containers-sobre-produto {
-            width: 90vw;
-            height: 90vh;
-            /* border: 1px solid white; */
-            margin: 5px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .boxs {
-            margin-top: 10px;
-            width: 100%;
-            border-radius: 10px;
-        }
-
-        #box-titulo-sobre-produto {
-            height: 20vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        #titulo-sobre-produto {
-            font-family: "Bebas Neue", serif;
-            font-weight: 400;
-            font-style: normal;
-            color: #fff;
-            font-size: 60px;
-            line-height: 45px;
-            text-align: center;
-        }
-
-        /* Sobre o Projeto */
-
-        #sobre-projeto {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        #titulo-sobre-projeto {
-            font-family: "Bebas Neue", serif;
-            font-weight: 400;
-            font-style: normal;
-            color: #fff;
-            font-size: 60px;
-            line-height: 45px;
-            text-align: center;
-        }
-
-        #timeline {
-            display: flex;
-            flex-direction: row;
-            height: 80vh;
-            justify-content: space-evenly;
-            align-items: center;
-            /* border: 1px solid white; */
-            position: relative; /* chatGPT */
-        }
-
-        #timeline::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            width: 75%;
-            height: 2px;
-            background-color: white;
-            z-index: -1; /* Fica atrás dos pontos */
-        }
-
-        .pontos-importantes {
-            border: 1px solid white;
-            border-radius: 100%;
-            background-color: #1275e6;
-            height: 1.5rem;
-            width: 1.5rem;
-            margin: 10px;
-            position: relative; /* chatGPT */
-        }
-
-        /* Comentários */
-        /* <link rel="stylesheet" href="src/css/comentarios.css"> */
-
-        /* footer */
-        /* <link rel="stylesheet" href="src/css/footer.css"> */
-
-        /* icons */
-        /* <i class="bi bi-star"></i>  estrela*/
-        /* <i class="bi bi-star-fill"></i> estrela com fundo preenchido*/
-        /* <i class="bi bi-star-half"></i> estrela com meio fundo preenchido*/
-
-    </style>
-
-    <body>
-
-        <!--Header-->
-
-    <div id="header-main-background" style="background-image: url('src/image/image_background.jpg'); background-size: cover;">
+    <div id="header-main-background"
+        style="background-image: url('src/image/image_background.jpg'); background-size: cover;">
 
         <header>
             <h1 id="titulo-principal">AquaPulse</h1>
@@ -187,7 +59,8 @@
                 <a class="header-links" href="#" target="_blank">Contato</a>
             </div>
             <div>
-                <a href="#"><i id="icone-perfil" class="bi bi-person-circle" style="font-size: 35px; color: white;"></i></a>
+                <a href="#"><i id="icone-perfil" class="bi bi-person-circle"
+                        style="font-size: 35px; color: white;"></i></a>
             </div>
         </header>
 
@@ -195,168 +68,124 @@
 
         <main>
             <div>
-                <p class="texto-chamativo" >O futuro da irrigação está aqui</p>
-                <p class="texto-chamativo" style="text-align: center; font-size: 30px;">Assista agora <a href="#"><i class="bi bi-play-circle" style="font-size: 30px;"></i></a></p>
+                <p class="texto-chamativo">O futuro da irrigação está aqui</p>
+                <p class="texto-chamativo" style="text-align: center; font-size: 30px;">Assista agora <a href="#"><i
+                            class="bi bi-play-circle" style="font-size: 30px;"></i></a></p>
             </div>
         </main>
 
     </div>
 
-        <!--Sobre o Produto-->
+    <!--Sobre o Produto-->
 
-        <section id="sobre-produto">
-            <div class="containers-sobre-produto">
-                <div class="boxs" id="box-titulo-sobre-produto"><h2 id="titulo-sobre-produto">Sobre o Produto</h2></div>
-                <div class="boxs" id="box-coluna1-linha2" style="height: 40vh; background-color: blue"></div>
-                <div class="boxs" id="box-coluna1-linha3" style="height: 40vh; background-color: purple"></div>
+    <section id="sobre-produto">
+        <div class="containers-sobre-produto">
+            <div class="boxs" id="box-titulo-sobre-produto">
+                <h2 id="titulo-sobre-produto">Sobre o Produto</h2>
+            </div>
+            <div class="boxs" id="box-coluna1-linha2" style="height: 40vh; background-color: blue"></div>
+            <div class="boxs" id="box-coluna1-linha3" style="height: 40vh; background-color: purple"></div>
+        </div>
+
+        <div class="containers-sobre-produto">
+            <div class="boxs" id="box-coluna2-linha1" style="height: 65vh; background-color: blue;"></div>
+            <div class="boxs" id="box-coluna2-linha2" style="height: 25vh; background-color: purple;"></div>
+        </div>
+
+        <div class="containers-sobre-produto">
+            <div class="boxs" id="box-coluna3-linha1" style="height: 45vh; background-color: purple;"></div>
+            <div class="boxs" id="box-coluna3-linha2" style="height: 45vh; background-color: purple;"></div>
+        </div>
+
+        <div class="containers-sobre-produto">
+            <div class="boxs" id="box-coluna4-linha1" style="height: 90vh; background-color: blue;"></div>
+        </div>
+
+        <div class="containers-sobre-produto">
+            <div class="boxs" id="box-coluna5-linha1" style="height: 30vh; background-color: purple;"></div>
+            <div class="boxs" id="box-coluna5-linha2" style="height: 60vh; background-color: blue;"></div>
+        </div>
+
+    </section>
+
+    <!--Sobre o projeto-->
+
+    <section id="sobre-projeto">
+        <h2 id="titulo-sobre-projeto">Sobre o Projeto</h2>
+
+        <div id="timeline">
+            <button class="pontos-importantes" id="ponto-1" type="button" onclick="ponto1()"></button>
+            <button class="pontos-importantes" id="ponto-2" type="button" onclick="ponto2()"></button>
+            <button class="pontos-importantes" id="ponto-3" type="button" onclick="ponto3()"></button>
+            <button class="pontos-importantes" id="ponto-4" type="button" onclick="ponto4()"></button>
+            <button class="pontos-importantes" id="ponto-5" type="button" onclick="ponto5()"></button>
+            <button class="pontos-importantes" id="ponto-6" type="button" onclick="ponto6()"></button>
+        </div>
+
+    </section>
+
+    <!--Comentários-->
+
+    <section id="comentarios">
+
+        <h2 id="titulo-comentarios">Comentários</h2>
+
+        <div style="display: flex; flex-direction: row; justify-content: center;">
+            <div class="comentario">
+                <i id="icone-perfil" class="bi bi-person-circle" style="font-size: 30px; color: red;"></i>
+                <p class="nome-usuario">Osmar Araujo</p>
+                <p class="data-comentario">31/12/2024</p>
+                <p class="texto-comentario">uso a muito tempo nunca me decepcionou !</p>
             </div>
 
-            <div class="containers-sobre-produto">
-                <div class="boxs" id="box-coluna2-linha1" style="height: 65vh; background-color: blue;"></div>
-                <div class="boxs" id="box-coluna2-linha2" style="height: 25vh; background-color: purple;"></div>
+            <div class="comentario">
+                <i id="icone-perfil" class="bi bi-person-circle" style="font-size: 30px; color: blue;"></i>
+                <p class="nome-usuario">Iago Paiva</p>
+                <p class="data-comentario">31/12/2024</p>
+                <p class="texto-comentario">Estou amando o sistema de irrigação digital, muito prático e dá pra usar de
+                    qualquer lugar</p>
             </div>
 
-            <div class="containers-sobre-produto">
-                <div class="boxs" id="box-coluna3-linha1" style="height: 45vh; background-color: purple;"></div>
-                <div class="boxs" id="box-coluna3-linha2" style="height: 45vh; background-color: purple;"></div>
+            <div class="comentario">
+                <i id="icone-perfil" class="bi bi-person-circle" style="font-size: 30px; color: green;"></i>
+                <p class="nome-usuario">Pedro Alves</p>
+                <p class="data-comentario">31/12/2024</p>
+                <p class="texto-comentario">Estou chateada com o projeto.</p>
             </div>
 
-            <div class="containers-sobre-produto">
-                <div class="boxs" id="box-coluna4-linha1" style="height: 90vh; background-color: blue;"></div>
-            </div>
-
-            <div class="containers-sobre-produto">
-                <div class="boxs" id="box-coluna5-linha1" style="height: 30vh; background-color: purple;"></div>
-                <div class="boxs" id="box-coluna5-linha2" style="height: 60vh; background-color: blue;"></div>
-            </div>
-
-        </section>
-
-        <!--Sobre o projeto-->
-
-        <section id="sobre-projeto">
-            <h2 id="titulo-sobre-projeto">Sobre o Projeto</h2>
-
-            <div id="timeline">
-                <button class="pontos-importantes" id="ponto-1" type="button" onclick="ponto1()"></button>
-                <button class="pontos-importantes" id="ponto-2" type="button" onclick="ponto2()"></button>
-                <button class="pontos-importantes" id="ponto-3" type="button" onclick="ponto3()"></button>
-                <button class="pontos-importantes" id="ponto-4" type="button" onclick="ponto4()"></button>
-                <button class="pontos-importantes" id="ponto-5" type="button" onclick="ponto5()"></button>
-                <button class="pontos-importantes" id="ponto-6" type="button" onclick="ponto6()"></button>
-            </div>
-
-        </section>
-
-        <!--Comentários-->
-
-        <section id="comentarios">
-            
-            <h2 id="titulo-comentarios">Comentários</h2>
-        
-            <div style="display: flex; flex-direction: row; justify-content: center;">
-                <div class="comentario">
-                    <i id="icone-perfil" class="bi bi-person-circle" style="font-size: 30px; color: red;"></i>
-                    <p class="nome-usuario">Osmar Araujo</p>
-                    <p class="data-comentario">31/12/2024</p>
-                    <p class="texto-comentario">uso a muito tempo nunca me decepcionou !</p>
-                </div>
-    
-                <div class="comentario">
-                    <i id="icone-perfil" class="bi bi-person-circle" style="font-size: 30px; color: blue;"></i>
-                    <p class="nome-usuario">Iago Paiva</p>
-                    <p class="data-comentario">31/12/2024</p>
-                    <p class="texto-comentario">Estou amando o sistema de irrigação digital, muito prático e dá pra usar de qualquer lugar</p>
-                </div>
-    
-                <div class="comentario">
-                    <i id="icone-perfil" class="bi bi-person-circle" style="font-size: 30px; color: green;"></i>
-                    <p class="nome-usuario">Pedro Alves</p>
-                    <p class="data-comentario">31/12/2024</p>
-                    <p class="texto-comentario">Estou chateada com o projeto.</p>
-                </div>
-    
-                <div class="comentario">
-                    <i id="icone-perfil" class="bi bi-person-circle" style="font-size: 30px; color: orange;"></i>
-                    <p class="nome-usuario">Iago Bortoluzzi</p>
-                    <p class="data-comentario">31/21/2024</p>
-                    <p class="texto-comentario">top!</p>
-                </div>
-            </div>
-
-        </section>
-
-        <!-- footer -->
-              <footer style="background: linear-gradient(135deg, #1a1a1a, #2d2d2d); color: #fff; font-family: 'Arial', sans-serif; padding: 40px 20px;">
-        <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start;">
-       
-            <div style="flex: 1 1 300px; text-align: center; margin-bottom: 20px;">
-                <img src="/src/image/logo fundo png simples.png" alt="Logo do Jogo" style="max-width: 100px; margin-bottom: 10px;">
-            </div>
-
-            <div style="flex: 2 1 600px; display: flex; justify-content: space-between; margin-bottom: 20px;">
-                <div style="flex: 1; margin: 0 10px;">
-                    <h3 style="color: #98E630; margin-bottom: 10px; font-size: 18px; border-bottom: 2px solid #98E630; display: inline-block;">Explorar</h3>
-                    <a href="#" style="display: block; color: #fff; text-decoration: none; margin-bottom: 5px; transition: color 0.3s ease;" onmouseover="this.style.color='#98E630';" onmouseout="this.style.color='#fff';">Novos Sistemas</a>
-                    <a href="#" style="display: block; color: #fff; text-decoration: none; margin-bottom: 5px; transition: color 0.3s ease;" onmouseover="this.style.color='#98E630';" onmouseout="this.style.color='#fff';">Sustentabilidade em Campo</a>
-                    <a href="#" style="display: block; color: #fff; text-decoration: none; margin-bottom: 5px; transition: color 0.3s ease;" onmouseover="this.style.color='#98E630';" onmouseout="this.style.color='#fff';">Acessórios</a>
-                </div>
-                <div style="flex: 1; margin: 0 10px;">
-                    <h3 style="color: #98E630; margin-bottom: 10px; font-size: 18px; border-bottom: 2px solid #98E630; display: inline-block;">Suporte</h3>
-                    <a href="#" style="display: block; color: #fff; text-decoration: none; margin-bottom: 5px; transition: color 0.3s ease;" onmouseover="this.style.color='#98E630';" onmouseout="this.style.color='#fff';">Central de Ajuda</a>
-                    <a href="#" style="display: block; color: #fff; text-decoration: none; margin-bottom: 5px; transition: color 0.3s ease;" onmouseover="this.style.color='#98E630';" onmouseout="this.style.color='#fff';">Garantia</a>
-                    <a href="#" style="display: block; color: #fff; text-decoration: none; margin-bottom: 5px; transition: color 0.3s ease;" onmouseover="this.style.color='#98E630';" onmouseout="this.style.color='#fff';">Fale Conosco</a>
-                </div>
-                <div style="flex: 1; margin: 0 10px;">
-                    <h3 style="color: #98E630; margin-bottom: 10px; font-size: 18px; border-bottom: 2px solid #98E630; display: inline-block;">Comunidade</h3>
-                    <a href="#" style="display: block; color: #fff; text-decoration: none; margin-bottom: 5px; transition: color 0.3s ease;" onmouseover="this.style.color='#98E630';" onmouseout="this.style.color='#fff';">Fóruns</a>
-                    <a href="#" style="display: block; color: #fff; text-decoration: none; margin-bottom: 5px; transition: color 0.3s ease;" onmouseover="this.style.color='#98E630';" onmouseout="this.style.color='#fff';">Eventos</a>
-                    <a href="#" style="display: block; color: #fff; text-decoration: none; margin-bottom: 5px; transition: color 0.3s ease;" onmouseover="this.style.color='#98E630';" onmouseout="this.style.color='#fff';">Notícias</a>
-                </div>
-            </div>
-
-          
-            <div style="flex: 1 1 300px; text-align: center; margin-bottom: 20px;">
-                <h3 style="font-size: 18px; color: #98E630; margin-bottom: 15px;">Siga-nos</h3>
-                <div style="display: flex; justify-content: center; gap: 15px;">
-                    <a href="#" style="width: 40px; height: 40px; background: #333; border-radius: 50%; display: flex; justify-content: center; align-items: center; transition: background 0.3s ease, transform 0.3s ease;" onmouseover="this.style.background='#98E630'; this.style.transform='scale(1.1)';"
-                        onmouseout="this.style.background='#333'; this.style.transform='scale(1)';">
-                        <i class="bi bi-facebook" style="font-size: 20px; color: #fff;"></i>
-                    </a>
-                    <a href="#" style="width: 40px; height: 40px; background: #333; border-radius: 50%; display: flex; justify-content: center; align-items: center; transition: background 0.3s ease, transform 0.3s ease;" onmouseover="this.style.background='#98E630'; this.style.transform='scale(1.1)';"
-                        onmouseout="this.style.background='#333'; this.style.transform='scale(1)';">
-                        <i class="bi bi-twitter" style="font-size: 20px; color: #fff;"></i>
-                    </a>
-                    <a href="#" style="width: 40px; height: 40px; background: #333; border-radius: 50%; display: flex; justify-content: center; align-items: center; transition: background 0.3s ease, transform 0.3s ease;" onmouseover="this.style.background='#98E630'; this.style.transform='scale(1.1)';"
-                        onmouseout="this.style.background='#333'; this.style.transform='scale(1)';">
-                        <i class="bi bi-instagram" style="font-size: 20px; color: #fff;"></i>
-                    </a>
-                    <a href="#" style="width: 40px; height: 40px; background: #333; border-radius: 50%; display: flex; justify-content: center; align-items: center; transition: background 0.3s ease, transform 0.3s ease;" onmouseover="this.style.background='#98E630'; this.style.transform='scale(1.1)';"
-                        onmouseout="this.style.background='#333'; this.style.transform='scale(1)';">
-                        <i class="bi bi-youtube" style="font-size: 20px; color: #fff;"></i>
-                    </a>
-                </div>
+            <div class="comentario">
+                <i id="icone-perfil" class="bi bi-person-circle" style="font-size: 30px; color: orange;"></i>
+                <p class="nome-usuario">Iago Bortoluzzi</p>
+                <p class="data-comentario">31/21/2024</p>
+                <p class="texto-comentario">top!</p>
             </div>
         </div>
-        <div style="text-align: center; border-top: 1px solid #98E630; padding-top: 15px; font-size: 14px; color: #ccc;">
-            <p>&copy; 2024 AquaPulse. Todos os direitos reservados.</p>
+
+    </section>
+
+    <!-- footer -->
+
+    <footer>
+        <p style="color: white"><a href="#" class="links-footer">Termos de uso</a> | <a href="#"
+                class="links-footer">Políticas de Privacidade</a></p>
+        <div id="redes-sociais" style="margin: 10px;">
+            <a href="#"><i class="bi bi-google" style="color: green; margin: 5px;"></i></a>
+            <a href="#"><i class="bi bi-linkedin" style="color: green; margin: 5px;"></i></a>
+            <a href="#"><i class="bi bi-instagram" style="color: green; margin: 5px;"></i></a>
+            <a href="#"><i class="bi bi-github" style="color: green; margin: 5px;"></i></a>
+            <a href="#"><i class="bi bi-youtube" style="color: green; margin: 5px;"></i></a>
         </div>
+        <p style="color: white;">
+            © 2024 AquaPulse. Todos os direitos reservados.
+        </p>
     </footer>
-        
 
-        <script>
-
-            // function enviarComentario () {
-            //     let comment = document.querySelector('#user-comentario').value;
-            //     console.log(comment);
-            //     document.querySelector('#comentario-usuario').textContent = comment;
-            // }
-
-            document.addEventListener('contextmenu', function(event) {
+    <script>
+        document.addEventListener('contextmenu', function (event) {
             event.preventDefault();
-            });
+        });
+    </script>
 
-        </script>
+</body>
 
-    </body>
 </html>
