@@ -25,7 +25,7 @@ const criarModal = () => {
     botaoFechar.onclick = () => fecharModal();
 
     const imagem = document.createElement('img');
-    imagem.src = "/src/image/modal.jpeg";
+    imagem.src = `src/image/modal.jpeg`;
     imagem.alt = 'Imagem de introdução';
     imagem.style = 'max-width: 65vw; max-height: 65vh; object-fit: contain; border-radius: 10px;';
 
