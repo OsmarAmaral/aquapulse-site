@@ -1,0 +1,157 @@
+/* Resetando margens, padding e box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo da página */
+body {
+    background-color: #0D0D0D; /* Cor de fundo escura */
+    color: #fff; /* Texto branco para contraste */
+    font-family: 'Nunito', sans-serif; /* Fonte mais legível */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+/* Main (centralizando o formulário) */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* Formulário */
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 350px;
+    background-color: #fff; /* Fundo branco */
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    padding: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efeito de hover no formulário */
+form:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Sombra mais forte ao passar o mouse */
+}
+
+/* Título */
+h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #0D6E3D; /* Verde vibrante */
+    margin-bottom: 20px;
+    font-family: 'Poppins', sans-serif; /* Fonte moderna */
+    text-align: center;
+}
+
+/* Labels */
+label {
+    color: #333; /* Cor do texto */
+    font-weight: 600;
+    font-size: 1rem;
+    width: 100%;
+    margin-bottom: 8px;
+    text-align: left;
+}
+
+/* Campos de entrada */
+input {
+    border: 2px solid #0D6E3D; /* Borda verde */
+    border-radius: 8px;
+    height: 45px;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 16px;
+    color: #333;
+    background-color: #f5f5f5;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Efeito de foco nos campos de entrada */
+input:focus {
+    border-color: #27ae60; /* Verde mais intenso */
+    background-color: #eafaf1; /* Fundo claro ao focar */
+    outline: none;
+}
+
+/* Caixa para o botão */
+.box-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+/* Botão de envio */
+button {
+    padding: 12px 24px;
+    background-color: #0D6E3D; /* Verde vibrante */
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Efeitos de hover e active no botão */
+button:hover {
+    background-color: #27ae60; /* Verde mais intenso no hover */
+}
+
+button:active {
+    background-color: #2ecc71; /* Verde mais brilhante no clique */
+    transform: scale(0.98); /* Efeito de clique */
+}
+
+/* Links */
+a {
+    color: #0D6E3D; /* Cor verde para links */
+    font-size: 14px;
+    text-decoration: none;
+    margin-top: 15px;
+    font-family: 'Nunito', sans-serif;
+    transition: color 0.3s ease;
+}
+
+/* Efeito de hover nos links */
+a:hover {
+    color: #27ae60; /* Verde mais claro no hover */
+    text-decoration: underline;
+}
+
+/* Responsividade: Ajustes para telas menores */
+@media (max-width: 600px) {
+    form {
+        width: 80%;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    input {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+}
