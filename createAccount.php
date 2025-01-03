@@ -91,7 +91,7 @@ $conn->close();
             <input id="confirmar-senha" type="password" name="confirmar-senha" placeholder="digite sua senha novamente..." minlength="8" required><br><br>
 
             <div class="box-btn">
-                <a href="#">Já tem uma conta?</a>
+                <a href="login.php">Já tem uma conta?</a>
                 <button type="submit">Ok!</button>
             </div>
         </form>
