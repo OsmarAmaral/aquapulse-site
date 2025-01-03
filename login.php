@@ -84,7 +84,7 @@ $conn->close();
             <input id="senha-usuario" type="password" name="senha" placeholder="Digite sua senha..." minlength="8" required><br><br>
 
             <div class="box-btn">
-                <a href="#">Não tem uma conta?</a>
+                <a href="createAccount.php">Não tem uma conta?</a>
                 <button type="submit">Ok!</button>
             </div>
         </form>
