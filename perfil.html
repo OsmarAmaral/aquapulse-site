@@ -327,59 +327,148 @@
         </div>
     </main>
     <script>
+        function validarCampo(campoId, regex, mensagemErroId, obrigatorio = false) {
+            const campo = document.getElementById(campoId);
+            const mensagemErro = document.getElementById(mensagemErroId);
+        
+            // Remove espaços adicionais
+            campo.value = campo.value.trim();
+        
+            // Validação para campos obrigatórios
+            if (obrigatorio && campo.value === "") {
+                mensagemErro.style.display = "block";
+                mensagemErro.textContent = "Este campo é obrigatório.";
+                campo.style.borderColor = "#d9534f"; // Borda vermelha
+                return false;
+            }
+        
+            // Validação para formato inválido
+            if (campo.value !== "" && !regex.test(campo.value)) {
+                mensagemErro.style.display = "block";
+                mensagemErro.textContent = "Formato inválido.";
+                campo.style.borderColor = "#d9534f";
+                return false;
+            }
+        
+            // Caso válido
+            mensagemErro.style.display = "none";
+            campo.style.borderColor = ""; // Remove destaque de erro
+            return true;
+        }
+        
+        function validarTodosCampos() {
+            const validacoes = [
+                validarCampo("nome", /^[A-Za-z\s]+$/, "nome-instructions", true), // Campo obrigatório
+                validarCampo("email", /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, "email-instructions", true), // Campo obrigatório
+                validarCampo("cpf", /^\d{3}\.\d{3}\.\d{3}-\d{2}$/, "cpf-instructions"), // Opcional
+                validarCampo("telefone", /^\(\d{2}\)\s\d{4,5}-\d{4}$/, "telefone-instructions"), // Opcional
+                validarCampo("endereco", /^.+$/, "endereco-instructions") // Opcional
+            ];
+        
+            return validacoes.every(v => v); // Retorna true se todos os campos forem válidos
+        }
+        
         function toggleEdicao(campoId, botaoId, instrucoesId) {
             const campo = document.getElementById(campoId);
             const botao = document.getElementById(botaoId);
             const instrucoes = document.getElementById(instrucoesId);
-
-            if (campo.hasAttribute('readonly')) {
-                campo.removeAttribute('readonly');
+        
+            if (campo.hasAttribute("readonly")) {
+                campo.removeAttribute("readonly");
                 campo.focus();
-                botao.textContent = 'Salvar';
-                instrucoes.style.display = 'block';
+                botao.textContent = "Salvar";
+                instrucoes.style.display = "block";
             } else {
-                campo.setAttribute('readonly', true);
-                botao.textContent = 'Editar';
-                instrucoes.style.display = 'none';
+                const valido = validarCampo(campoId, obterRegex(campoId), instrucoesId, campoId === "nome" || campoId === "email");
+                if (valido) {
+                    campo.setAttribute("readonly", true);
+                    botao.textContent = "Editar";
+                    instrucoes.style.display = "none";
+                } else {
+                    campo.focus();
+                }
             }
         }
-
+        
+        function obterRegex(campoId) {
+            switch (campoId) {
+                case "nome":
+                    return /^[A-Za-z\s]+$/;
+                case "email":
+                    return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                case "cpf":
+                    return /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
+                case "telefone":
+                    return /^\(\d{2}\)\s\d{4,5}-\d{4}$/;
+                case "endereco":
+                    return /^.+$/;
+                default:
+                    return /.*/;
+            }
+        }
+        
         function atualizarNivel() {
             const campos = [
-                document.getElementById('nome').value.trim(),
-                document.getElementById('email').value.trim(),
-                document.getElementById('cpf').value.trim(),
-                document.getElementById('telefone').value.trim(),
-                document.getElementById('endereco').value.trim(),
+                { id: "nome", regex: /^[A-Za-z\s]+$/, obrigatorio: true },
+                { id: "email", regex: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, obrigatorio: true },
+                { id: "cpf", regex: /^\d{3}\.\d{3}\.\d{3}-\d{2}$/, obrigatorio: false },
+                { id: "telefone", regex: /^\(\d{2}\)\s\d{4,5}-\d{4}$/, obrigatorio: false },
+                { id: "endereco", regex: /^.+$/, obrigatorio: false },
             ];
-
-            const preenchidos = campos.filter(campo => campo !== '').length;
-            const levelStatus = document.getElementById('level-status');
-            const levelSpan = levelStatus.querySelector('span');
-            const confirmationMessage = document.getElementById('confirmation-message');
-            const confirmationCard = document.getElementById('confirmation-card');
-
-            let nivel = 'Bronze';
-            if (preenchidos === 5) {
-                levelStatus.className = 'level-status gold';
-                nivel = 'Ouro';
-                levelSpan.textContent = nivel;
-            } else if (preenchidos >= 3) {
-                levelStatus.className = 'level-status silver';
-                nivel = 'Prata';
-                levelSpan.textContent = nivel;
-            } else {
-                levelStatus.className = 'level-status bronze';
-                nivel = 'Bronze';
-                levelSpan.textContent = nivel;
+        
+            let preenchidosValidos = 0;
+            let obrigatoriosValidos = true;
+        
+            campos.forEach(campo => {
+                const campoElemento = document.getElementById(campo.id);
+                const mensagemErroId = `${campo.id}-instructions`;
+        
+                // Remove espaços extras antes de validar
+                campoElemento.value = campoElemento.value.trim();
+        
+                // Validação dos campos
+                const valido = validarCampo(campo.id, campo.regex, mensagemErroId, campo.obrigatorio);
+        
+                if (campo.obrigatorio && !valido) {
+                    obrigatoriosValidos = false;
+                }
+        
+                if (campoElemento.value !== "" && valido) {
+                    preenchidosValidos++;
+                }
+            });
+        
+            // Determinar nível da conta
+            const totalCampos = campos.length;
+            const levelStatus = document.getElementById("level-status");
+            const levelSpan = levelStatus.querySelector("span");
+        
+            if (!obrigatoriosValidos) {
+                alert("Por favor, preencha os campos obrigatórios corretamente antes de efetivar.");
+                return;
             }
-
-            confirmationMessage.innerHTML = `Sua conta é nível ${nivel}!<br> Seus dados foram alterados com sucesso e estão protegidos com segurança de ponta a ponta.`;
-            confirmationCard.style.display = 'block';
+        
+            if (preenchidosValidos === totalCampos) {
+                levelStatus.className = "level-status gold";
+                levelSpan.textContent = "Ouro";
+            } else if (preenchidosValidos >= Math.ceil(totalCampos / 2)) {
+                levelStatus.className = "level-status silver";
+                levelSpan.textContent = "Prata";
+            } else {
+                levelStatus.className = "level-status bronze";
+                levelSpan.textContent = "Bronze";
+            }
+        
+            // Mensagem de confirmação
+            const confirmationMessage = document.getElementById("confirmation-message");
+            const confirmationCard = document.getElementById("confirmation-card");
+        
+            confirmationMessage.innerHTML = `Sua conta agora é nível <b>${levelSpan.textContent}</b>!<br> Obrigado por atualizar seus dados.`;
+            confirmationCard.style.display = "block";
         }
-
+        
         function fecharCard() {
-            document.getElementById('confirmation-card').style.display = 'none';
+            document.getElementById("confirmation-card").style.display = "none";
         }
     </script>
 </body>
