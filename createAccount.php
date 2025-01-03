@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "aquapulse"; // Nome do banco de dados
+$dbname = "AquaPulse"; // Nome do banco de dados
 
 // Criar conexão
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -12,6 +12,8 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Conexão falhou: " . $conn->connect_error);
 }
+
+$alert_message = ""; // Variável para armazenar mensagens de alerta
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Coletando dados do formulário
@@ -22,23 +24,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Verificando se a senha e a confirmação de senha coincidem
     if ($senha !== $confirmar_senha) {
-        echo "As senhas não coincidem!";
+        $alert_message = "As senhas não coincidem!";
     } else {
         // Verificando se o usuário já existe
-        $sql_check = "SELECT * FROM usuarios WHERE email = '$email'";
+        $sql_check = "SELECT * FROM tbUsuarios WHERE email_usuario = '$email'";
         $result = $conn->query($sql_check);
 
         if ($result->num_rows > 0) {
-            echo "Este email já está em uso.";
+            $alert_message = "Este email já está em uso.";
         } else {
             // Inserir o novo usuário no banco de dados
             $senha_hash = password_hash($senha, PASSWORD_DEFAULT); // Criptografando a senha
-            $sql_insert = "INSERT INTO usuarios (nome, email, senha) VALUES ('$nome', '$email', '$senha_hash')";
+            $sql_insert = "INSERT INTO tbUsuarios (nome_usuario, email_usuario, senha_usuario)
+                           VALUES ('$nome', '$email', '$senha_hash')";
 
             if ($conn->query($sql_insert) === TRUE) {
-                echo "Cadastro realizado com sucesso!";
+                $alert_message = "Cadastro realizado com sucesso!";
             } else {
-                echo "Erro: " . $sql_insert . "<br>" . $conn->error;
+                $alert_message = "Erro: " . $sql_insert . "<br>" . $conn->error;
             }
         }
     }
@@ -56,6 +59,17 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="src/css/css-create-account.css">
     <title>AquaPulse Criar Conta</title>
+
+    <!-- Script para exibir o alerta -->
+    <script>
+        window.onload = function () {
+            var alertMessage = "<?php echo $alert_message; ?>";
+            if (alertMessage) {
+                alert(alertMessage); // Exibe o alerta com a mensagem
+                console.log(alertMessage); // Exibe a mensagem no console
+            }
+        };
+    </script>
 </head>
 
 <body>
