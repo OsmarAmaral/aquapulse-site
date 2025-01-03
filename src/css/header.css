@@ -1,16 +1,16 @@
-/* 
-        <header>
-            <h1 id="titulo-principal">AquaPulse</h1>
-            <div>
-                <a class="header-links" href="#" target="_blank">Sobre</a>
-                <a class="header-links" href="#" target="_blank">Serviço</a>
-                <a class="header-links" href="#" target="_blank">Contato</a>
-            </div>
-            <div>
-                <a href="#"><i id="icone-perfil" class="bi bi-person-circle" style="font-size: 35px; color: white;"></i></a>
-            </div>
-        </header>
-*/
+
+/* <header>
+    <h1 id="titulo-principal">AquaPulse</h1>
+    <div>
+        <a class="header-links" href="#" target="_blank">Sobre</a>
+        <a class="header-links" href="#" target="_blank">Serviço</a>
+        <a class="header-links" href="#" target="_blank">Contato</a>
+    </div>
+    <div>
+        <a href="#"><i id="icone-perfil" class="bi bi-person-circle" style="font-size: 35px; color: white;"></i></a>
+    </div>
+</header> */
+
 
 header {
     display: flex;
@@ -19,11 +19,6 @@ header {
     align-items: center;
     margin-top: 0;
     height: 10vh;
-    /* margin: 10px; */
-    /* padding: 10px; */
-    /* border: 1px solid white; */
-    /* position: relative; /* chatGPT */
-    /* z-index: 1; /* Garante que o conteúdo fique acima do fundo desfocado , chatGPT*/
 }
 
 #titulo-principal {
@@ -42,12 +37,25 @@ header {
     color: #fff;
     margin: 15px;
     font-size: 18px;
-    transition: font-size 0.3s ease;
+    display: inline-block;
+    padding-bottom: 3px;
+    position: relative; 
+    transition: all 0.3s ease;
 }
 
-.header-links:hover {
-    border-bottom: 3px solid green;
-    font-size: 20px;
+.header-links::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    background-color: green;
+    transition: width 0.3s ease;
+}
+
+.header-links:hover::after {
+    width: 100%; 
 }
 
 #icone-perfil:hover {
