@@ -1,14 +1,14 @@
-
 /* <header>
-    <h1 id="titulo-principal">AquaPulse</h1>
-    <div>
-        <a class="header-links" href="#" target="_blank">Sobre</a>
-        <a class="header-links" href="#" target="_blank">Serviço</a>
-        <a class="header-links" href="#" target="_blank">Contato</a>
-    </div>
-    <div>
-        <a href="#"><i id="icone-perfil" class="bi bi-person-circle" style="font-size: 35px; color: white;"></i></a>
-    </div>
+<h1 id="titulo-principal">AquaPulse</h1>
+<div>
+    <a class="header-links" href="/index.html">Sobre</a>
+    <a class="header-links" href="/produtos.html">Produto</a>
+    <a class="header-links" href="/suporte.html">Suporte</a>
+    <a class="header-links" href="/faq.html">FAQ</a>
+</div>
+<div>
+    <a href="/usuarioTelaLogin.html"><img src="src/image/logo.png" alt="foto de perfil" style="height: 50px;"></a>
+</div>
 </header> */
 
 
@@ -61,3 +61,4 @@ header {
 #icone-perfil:hover {
     color: green;
 }
+
