@@ -47,10 +47,10 @@ $email = isset($_GET['email']) ? addslashes($_GET['email']) : '';
 
         // Exibir o nome do usuário na página
         const nomeUsuario = document.querySelector('#nome-usuario');
-        nomeUsuario.textContent = `${user.nome}!`;
+        nomeUsuario.textContent = `${user.nome}`;
 
         const emailUsuario = document.querySelector('#email-usuario');
-        emailUsuario.textContent = `${user.email}!`;
+        emailUsuario.textContent = `${user.email}`;
 
         // Armazenar os dados em uma variável (ou localStorage, se necessário)
         console.log("Dados do usuário armazenados:", user);
