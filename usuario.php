@@ -13,7 +13,7 @@ $email = isset($_GET['email']) ? addslashes($_GET['email']) : '';
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
         rel="stylesheet">
     <meta charset="utf-8">
-    <link rel="stylesheet" href="src/css/css-user-account.css">
+    <link rel="stylesheet" href="src/css/usuario.css">
     <link rel="stylesheet" href="src/css/header.css">
     <title>AquaPulse 2057</title>
 </head>
@@ -34,6 +34,7 @@ $email = isset($_GET['email']) ? addslashes($_GET['email']) : '';
         <main>
             <img src="src/image/logo.png" alt="foto de perfil" style="height: 160px; width: 160px;">
             <p id="nome-usuario"></p>
+            <p id="email-usuario"></p>
         </main>
     </div>
 </body>
@@ -46,7 +47,10 @@ $email = isset($_GET['email']) ? addslashes($_GET['email']) : '';
 
         // Exibir o nome do usuário na página
         const nomeUsuario = document.querySelector('#nome-usuario');
-        nomeUsuario.textContent = `Bem-vindo, ${user.nome}!`;
+        nomeUsuario.textContent = `${user.nome}!`;
+
+        const emailUsuario = document.querySelector('#email-usuario');
+        emailUsuario.textContent = `${user.email}!`;
 
         // Armazenar os dados em uma variável (ou localStorage, se necessário)
         console.log("Dados do usuário armazenados:", user);
