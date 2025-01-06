@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "AquaPulse"; // Nome do banco de dados
+$dbname = "AquaPulse";
 
 // Criar conexão
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -13,47 +13,40 @@ if ($conn->connect_error) {
     die("Conexão falhou: " . $conn->connect_error);
 }
 
-$alert_message = ""; // Variável para armazenar mensagens de alerta
+$alert_message = ""; // Variável para mensagens de alerta
+$nome = $email = ""; // Inicialização de variáveis
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Coletando dados do formulário
-    $nome = trim($_POST['nome']);
-    $email = trim($_POST['email']);
-    $senha = trim($_POST['senha']);
-    $confirmar_senha = trim($_POST['confirmar-senha']);
+    $nome = $_POST['nome'];
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
+    $confirmar_senha = $_POST['confirmar-senha'];
 
     // Verificando se a senha e a confirmação de senha coincidem
     if ($senha !== $confirmar_senha) {
         $alert_message = "As senhas não coincidem!";
     } else {
         // Verificando se o usuário já existe
-        $stmt_check = $conn->prepare("SELECT * FROM tbUsuarios WHERE email_usuario = ?");
-        $stmt_check->bind_param("s", $email);
-        $stmt_check->execute();
-        $stmt_check->store_result();
+        $sql_check = "SELECT * FROM tbUsuarios WHERE email_usuario = '$email'";
+        $result = $conn->query($sql_check);
 
-        if ($stmt_check->num_rows > 0) {
+        if ($result->num_rows > 0) {
             $alert_message = "Este email já está em uso.";
         } else {
             // Inserir o novo usuário no banco de dados
             $senha_hash = password_hash($senha, PASSWORD_DEFAULT); // Criptografando a senha
-            $stmt_insert = $conn->prepare("INSERT INTO tbUsuarios (nome_usuario, email_usuario, senha_usuario) VALUES (?, ?, ?)");
-            $stmt_insert->bind_param("sss", $nome, $email, $senha_hash);
+            $sql_insert = "INSERT INTO tbUsuarios (nome_usuario, email_usuario, senha_usuario)
+                           VALUES ('$nome', '$email', '$senha_hash')";
 
-            if ($stmt_insert->execute()) {
-                // Cadastro bem-sucedido
-                session_start();
-                $_SESSION['usuario_logado'] = $email; // Armazena o e-mail na sessão
-                header("Location: index.php"); // Redirecionar para o dashboard
+            if ($conn->query($sql_insert) === TRUE) {
+                // Redirecionar para a página de boas-vindas
+                header("Location: usuario.php?nome=" . urlencode($nome) . "&email=" . urlencode($email));
                 exit();
             } else {
-                $alert_message = "Erro ao cadastrar usuário. Tente novamente mais tarde.";
+                $alert_message = "Erro: " . $sql_insert . "<br>" . $conn->error;
             }
-
-            $stmt_insert->close();
         }
-
-        $stmt_check->close();
     }
 }
 
@@ -68,24 +61,13 @@ $conn->close();
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="src/css/css-create-account.css">
+    <script src="src/js/usuario.js"></script>
     <title>AquaPulse Criar Conta</title>
-
-    <!-- Script para exibir o alerta -->
-    <script>
-        window.onload = function () {
-            var alertMessage = "<?php echo htmlspecialchars($alert_message, ENT_QUOTES, 'UTF-8'); ?>";
-            if (alertMessage) {
-                alert(alertMessage); // Exibe o alerta com a mensagem
-                console.log(alertMessage); // Exibe a mensagem no console
-            }
-        };
-    </script>
 </head>
 
 <body>
     <main>
         <form action="" method="POST">
-
             <h1>Criar Conta</h1>
 
             <label for="nome-usuario">Nome:</label><br>
@@ -101,8 +83,8 @@ $conn->close();
             <input id="confirmar-senha" type="password" name="confirmar-senha" placeholder="Digite sua senha novamente..." minlength="8" required><br><br>
 
             <div class="box-btn">
-                <a href="login.php">Já tem uma conta?</a>
-                <button type="submit">Ok!</button>
+                <a href="#">Já tem uma conta?</a>
+                <button type="submit">Cadastrar</button>
             </div>
         </form>
     </main>
