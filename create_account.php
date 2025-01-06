@@ -71,7 +71,7 @@ $conn->close();
             <h1>Criar Conta</h1>
 
             <label for="nome-usuario">Nome:</label><br>
-            <input id="nome-usuario" type="text" name="nome" placeholder="Digite seu nome..." minlength="3" required><br><br>
+            <input sutofocus id="nome-usuario" type="text" name="nome" placeholder="Digite seu nome..." minlength="3" required><br><br>
 
             <label for="email-usuario">Email:</label><br>
             <input id="email-usuario" type="email" name="email" placeholder="Digite seu email..." required><br><br>
@@ -83,7 +83,7 @@ $conn->close();
             <input id="confirmar-senha" type="password" name="confirmar-senha" placeholder="Digite sua senha novamente..." minlength="8" required><br><br>
 
             <div class="box-btn">
-                <a href="#">Já tem uma conta?</a>
+                <a href="login.php">Já tem uma conta?</a>
                 <button type="submit">Cadastrar</button>
             </div>
         </form>
