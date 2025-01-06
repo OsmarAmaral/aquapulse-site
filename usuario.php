@@ -32,9 +32,29 @@ $email = isset($_GET['email']) ? addslashes($_GET['email']) : '';
     </header>
     <div id="container" style="height: 90vh;">
         <main>
-            <img src="src/image/logo.png" alt="foto de perfil" style="height: 160px; width: 160px;">
-            <p id="nome-usuario"></p>
-            <p id="email-usuario"></p>
+            <div class="box" id="box-1">
+                <img src="src/image/logo.png" alt="foto de perfil" style="height: 160px; width: 160px;">
+                <p id="nome-usuario">Nome: </p>
+                <p id="email-usuario">Email: </p>
+            </div>
+            <form class="box" id="box-2" action="processa_usuario.php">
+                <label for="cidade-usuario">Cidade:</label><br>
+                <input autofocus list="lista-cidades" id="cidade-usuario" name="cidade-usuario" placeholder="selecione sua cidade...">
+                <datalist id="lista-cidades">
+                    <option value="Rondonópolis">
+                </datalist>
+                <label for="estado-usuario">Estado:</label><br>
+                <input list="lista-estados" id="estado-usuario" name="estado-usuario" placeholder="selecione seu estado...">
+                <datalist id="lista-estados">
+                    <option value="Mato Grosso">
+                </datalist>
+                <label for="sobrenome-usuario">Sobrenome:</label><br>
+                <input id="sobrenome-usuario" name="sobrenome-usuario" placeholder="digite seu sobrenome...">
+                <button type="submit">Enviar</button>
+            </form>
+            <div class="box" id="box-3">
+
+            </div>
         </main>
     </div>
 </body>
@@ -47,10 +67,10 @@ $email = isset($_GET['email']) ? addslashes($_GET['email']) : '';
 
         // Exibir o nome do usuário na página
         const nomeUsuario = document.querySelector('#nome-usuario');
-        nomeUsuario.textContent = `${user.nome}`;
+        nomeUsuario.textContent += `${user.nome}`;
 
         const emailUsuario = document.querySelector('#email-usuario');
-        emailUsuario.textContent = `${user.email}`;
+        emailUsuario.textContent += `${user.email}`;
 
         // Armazenar os dados em uma variável (ou localStorage, se necessário)
         console.log("Dados do usuário armazenados:", user);
