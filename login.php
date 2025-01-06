@@ -33,7 +33,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $stmt_check->fetch();
 
             if (password_verify($senha, $senha_hash)) {
-                $alert_message = "Login bem-sucedido. Bem-vindo!";
+                // Login bem-sucedido, redirecionar usuário
+                session_start();
+                $_SESSION['usuario_logado'] = $email; // Exemplo de armazenar o e-mail na sessão
+                header("Location: index.html"); // Redirecionar para a página do dashboard
+                exit(); // Garantir que o script seja interrompido após o redirecionamento
             } else {
                 $alert_message = "Senha incorreta. Tente novamente.";
             }
