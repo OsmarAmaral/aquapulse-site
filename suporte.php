@@ -1,16 +1,66 @@
+<?php
+$servername = "localhost";  // endereço do servidor MySQL
+$username = "root";         // seu nome de usuário do MySQL
+$password = "";             // sua senha do MySQL
+$dbname = "aquapulse";      // nome do banco de dados
+
+// Conectar ao banco de dados
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Verificar a conexão
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Receber a pergunta do formulário
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $pergunta = trim($_POST['pergunta']);  // Usando trim() para remover espaços extras
+
+    // Validar se a pergunta não está vazia
+    if (!empty($pergunta)) {
+        // Preparar a query para inserção
+        $sql = "INSERT INTO tbperguntasfreq (pergunta) VALUES (?)";  // Certifique-se de que o nome da tabela é correto
+        $stmt = $conn->prepare($sql);
+
+        // Verificar se a preparação da query foi bem-sucedida
+        if ($stmt === false) {
+            die('Erro ao preparar a consulta: ' . $conn->error);
+        }
+
+        // Associar o parâmetro da pergunta ao prepared statement
+        $stmt->bind_param("s", $pergunta);
+
+        // Executar a query
+        if ($stmt->execute()) {
+            $message = "Sua pergunta foi enviada com sucesso!";
+        } else {
+            $message = "Erro ao enviar a pergunta: " . $conn->error;
+        }
+
+        // Fechar o statement
+        $stmt->close();
+    } else {
+        $message = "A pergunta não pode estar vazia.";
+    }
+}
+
+// Fechar a conexão
+$conn->close();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Suporte - Aquapulse</title>
+    <title>Suporte - AquaPulse</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="src/css/header.css">
     <link rel="stylesheet" href="src/css/footer.css">
+    <script src="src/js/menu.js" defer></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -19,14 +69,7 @@
             background-color: #0D0D0D;
             color: #FFFFFF;
         }
-        
-        header {
-            background-color: #0d0d0d !important;
-            padding-left: 10px;
-            padding-top: 9px;
-            /* Adicionando espaço à esquerda */
-        }
-        
+
         .section-title {
             font-size: 1.8rem;
             font-weight: 600;
@@ -36,7 +79,7 @@
             border-bottom: 1px solid #333333;
             padding-bottom: 10px;
         }
-        
+
         .support-card {
             background-color: #1A1A1A;
             border: 1px solid #333333;
@@ -48,30 +91,30 @@
             height: 100%;
             transition: background-color 0.3s ease, transform 0.2s ease;
         }
-        
+
         .support-card:hover {
             background-color: #333333;
             transform: scale(1.02);
         }
-        
+
         .support-card i {
             font-size: 2rem;
             color: #CCCCCC;
             margin-bottom: 15px;
         }
-        
+
         .support-card h4 {
             font-size: 1.2rem;
             font-weight: 600;
             margin-bottom: 10px;
             color: #FFFFFF;
         }
-        
+
         .support-card p {
             font-size: 0.9rem;
             color: #CCCCCC;
         }
-        
+
         .action-btn {
             background: none;
             border: 1px solid #FFFFFF;
@@ -82,50 +125,12 @@
             border-radius: 4px;
             transition: background-color 0.3s ease, color 0.3s ease;
         }
-        
+
         .action-btn:hover {
             background-color: #FFFFFF;
             color: #0D0D0D;
         }
-        
-        .modal-content {
-            background-color: #0D0D0D;
-            border: none;
-            color: #FFFFFF;
-        }
-        
-        .modal-header {
-            border-bottom: 1px solid #333333;
-        }
-        
-        .modal-footer {
-            border-top: 1px solid #333333;
-        }
-        
-        .modal-title {
-            color: #FFFFFF;
-        }
-        
-        .modal-body ol {
-            padding-left: 20px;
-            color: #FFFFFF;
-        }
-        /* Estilo da Caixa de Texto */
-        
-        #userQuestion:focus {
-            border-color: #FFF;
-            outline: none;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-        }
-        
-        .btn-outline-light:hover {
-            background-color: #FFF;
-            color: #0D0D0D;
-            border-color: #FFF;
-            transition: 0.3s ease;
-        }
-        /* Card de Notificação */
-        
+
         .notification-card {
             position: fixed;
             top: 20px;
@@ -137,34 +142,34 @@
             z-index: 1000;
             animation: slideIn 0.5s ease-in-out;
         }
-        
+
         .notification-card p {
             margin: 0;
             font-size: 1rem;
             font-weight: bold;
             text-align: center;
         }
-        
+
         .notification-card.success {
             background-color: #4CAF50;
             color: #FFF;
         }
-        
+
         .notification-card.error {
             background-color: #FF5252;
             color: #FFF;
         }
-        
+
         .d-none {
             display: none !important;
         }
-        /* Animação de Slide */
-        
+
         @keyframes slideIn {
             from {
                 opacity: 0;
                 transform: translateY(-20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -174,19 +179,21 @@
 </head>
 
 <body>
-    <header>
-        <h1 id="titulo-principal">AquaPulse</h1>
-        <div>
-            <a class="header-links" href="index.html">Sobre</a>
-            <a class="header-links" href="produtos.html">Produto</a>
-            <a class="header-links" href="suporte.html">Suporte</a>
-            <a class="header-links" href="perguntas-frequentes.html">FAQ</a>
+<header>
+        <div id="logo-container">
+            <img id="logo" src="src/image/logo.png" alt="Logo AquaPulse">
+            <h1 id="titulo-principal">AquaPulse</h1>
         </div>
-        <div>
-            <a href="/perfil.html"><img src="src/image/logo.png" alt="foto de perfil" style="height: 50px;"></a>
+        <div id="menu-links">
+            <a class="header-links" href="#sobre-produto">Sobre</a>
+            <a class="header-links" href="produtos.html">Produto</a>
+            <a class="header-links" href="suporte.php">Suporte</a>
+            <a class="header-links" href="perguntas-frequentes.php">FAQ</a>
+        </div>
+        <div id="menu-icon-container">
+            <i class="bi bi-list" id="menu-icon"></i>
         </div>
     </header>
-    <!-- Recursos -->
     <div class="container my-5">
         <h2 class="section-title">Recursos e Instalações</h2>
         <div class="row g-4">
@@ -477,7 +484,7 @@
             </div>
         </div>
     </div>
-    <!-- Caixa de dúvidas -->
+    <!-- Formulário de Perguntas -->
     <div class="container my-5">
         <div class="card p-4 shadow-lg rounded" style="background-color: #1A1A1A; border: 1px solid #333;">
             <h4 class="text-center mb-3" style="color: #FFF; font-family: 'Poppins', sans-serif;">
@@ -486,12 +493,11 @@
             <p class="text-center" style="color: #CCC; font-family: 'Poppins', sans-serif;">
                 Digite sua pergunta no campo abaixo. Nossa equipe responderá em breve!
             </p>
-            <form id="questionForm" class="d-flex flex-column align-items-center">
-                <textarea id="userQuestion" class="form-control mb-3 shadow" rows="4" placeholder="Escreva aqui sua pergunta..." required style="resize: none; max-width: 100%; min-width: 100%; background-color: #222; color: #FFF; border-radius: 8px; padding: 15px; font-size: 1rem; border: 1px solid #444; font-family: 'Poppins', sans-serif;">
-            </textarea>
+            <form id="questionForm" method="POST" action="">
+                <textarea id="userQuestion" name="pergunta" class="form-control mb-3 shadow" rows="4" placeholder="Escreva aqui sua pergunta..." required style="resize: none; background-color: #222; color: #FFF; border-radius: 8px; padding: 15px; font-size: 1rem; border: 1px solid #444;"></textarea>
                 <button type="submit" class="btn btn-outline-light shadow-lg px-5 py-2" style="font-weight: bold; font-size: 1rem; font-family: 'Poppins', sans-serif;">
-                Enviar Pergunta
-            </button>
+                    Enviar Pergunta
+                </button>
             </form>
         </div>
     </div>
@@ -500,36 +506,21 @@
     <div id="notificationCard" class="notification-card d-none">
         <p id="notificationMessage"></p>
     </div>
+
     <script>
-        document.getElementById("questionForm").addEventListener("submit", function(e) {
-            e.preventDefault(); // Impede o envio padrão do formulário
-
-            const questionInput = document.getElementById("userQuestion");
-            const notificationCard = document.getElementById("notificationCard");
-            const notificationMessage = document.getElementById("notificationMessage");
-
-            // Oculta o card antes de exibir o próximo
-            notificationCard.classList.add("d-none");
-
-            if (!questionInput.value.trim()) {
-                // Configuração do card de erro
-                notificationMessage.textContent = "⚠ Por favor, insira uma pergunta válida!";
-                notificationCard.className = "notification-card error";
-                notificationCard.classList.remove("d-none");
-            } else {
-                // Configuração do card de sucesso
-                notificationMessage.textContent = " Sua pergunta foi enviada com sucesso! Nossa equipe responderá em breve.";
-                notificationCard.className = "notification-card success";
-                notificationCard.classList.remove("d-none");
-                questionInput.value = ""; // Limpa o campo de texto
-            }
-
-            // Remove o card automaticamente após 5 segundos
+        // Exibição de mensagem após o envio
+        <?php if (isset($message)) { ?>
+            const notificationMessage = '<?php echo $message; ?>';
+            const notificationCard = document.getElementById('notificationCard');
+            const messageElement = document.getElementById('notificationMessage');
+            messageElement.textContent = notificationMessage;
+            notificationCard.classList.remove('d-none');
             setTimeout(() => {
-                notificationCard.classList.add("d-none");
-            }, 5000);   
-        });
+                notificationCard.classList.add('d-none');
+            }, 5000);
+        <?php } ?>
     </script>
+
     <footer>
         <p style="color: white"><a href="#" class="links-footer">Termos de uso</a> | <a href="#" class="links-footer">Políticas de Privacidade</a></p>
         <div id="redes-sociais" style="margin: 10px;">
