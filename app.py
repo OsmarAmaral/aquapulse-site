@@ -105,8 +105,84 @@ def avaliacoes_usuario():
     plt.axis('equal')  # Garantir que o gráfico seja um círculo perfeito
     plt.show()
 
+def receita_pedidos():
+    try:
+        # Consulta SQL para agrupar receitas por data
+        query = """
+        SELECT data_pedido, SUM(total_pedido) as receita
+        FROM tbPedidos
+        GROUP BY data_pedido
+        ORDER BY data_pedido;
+        """
+        
+        # Executar a query e carregar os dados em um DataFrame
+        cursor = conn.cursor()
+        cursor.execute(query)
+        rows = cursor.fetchall()
+        df = pd.DataFrame(rows, columns=['data_pedido', 'receita'])
+        cursor.close()
+
+        # Garantir que as datas estejam em formato datetime
+        df['data_pedido'] = pd.to_datetime(df['data_pedido'])
+
+        # Criar o gráfico de linha
+        plt.figure(figsize=(10, 6))
+        plt.plot(df['data_pedido'], df['receita'], marker='o', color='blue')
+        plt.title('Receita Total por Data')
+        plt.xlabel('Data do Pedido')
+        plt.ylabel('Receita Total (R$)')
+        plt.grid(True)
+        plt.tight_layout()
+        plt.show()
+
+    except mysql.connector.Error as e:
+        print(f"Erro ao executar a consulta no banco de dados: {e}")
+    except Exception as e:
+        print(f"Ocorreu um erro: {e}")
+
+def status_pedidos():
+    try:
+        # Consulta SQL para agrupar status por data
+        query = """
+        SELECT data_pedido, COUNT(CASE WHEN status_pedido = 'concluído' THEN 1 END) as concluido,
+               COUNT(CASE WHEN status_pedido = 'pendente' THEN 1 END) as pendente,
+               COUNT(CASE WHEN status_pedido = 'cancelado' THEN 1 END) as cancelado
+        FROM tbPedidos
+        GROUP BY data_pedido
+        ORDER BY data_pedido;
+        """
+        
+        # Executar a query e carregar os dados em um DataFrame
+        cursor = conn.cursor()
+        cursor.execute(query)
+        rows = cursor.fetchall()
+        df = pd.DataFrame(rows, columns=['data_pedido', 'concluido', 'pendente', 'cancelado'])
+        cursor.close()
+
+        # Garantir que as datas estejam em formato datetime
+        df['data_pedido'] = pd.to_datetime(df['data_pedido'])
+
+        # Criar o gráfico de linhas para status de pedidos
+        plt.figure(figsize=(10, 6))
+        plt.plot(df['data_pedido'], df['concluido'], label='Concluído', marker='o', color='green')
+        plt.plot(df['data_pedido'], df['pendente'], label='Pendente', marker='o', color='orange')
+        plt.plot(df['data_pedido'], df['cancelado'], label='Cancelado', marker='o', color='red')
+        plt.title('Status dos Pedidos por Data')
+        plt.xlabel('Data do Pedido')
+        plt.ylabel('Número de Pedidos')
+        plt.legend()
+        plt.grid(True)
+        plt.tight_layout()
+        plt.show()
+
+    except mysql.connector.Error as e:
+        print(f"Erro ao executar a consulta no banco de dados: {e}")
+    except Exception as e:
+        print(f"Ocorreu um erro: {e}")
+
 # Executar a função para gerar o gráfico
-estados_usuario()
+receita_pedidos()
+status_pedidos()
 
 # Fechar a conexão após a execução
 conn.close()
