@@ -22,18 +22,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (!empty($email) && !empty($senha)) {
         // Consultar usuário pelo e-mail
-        $stmt_check = $conn->prepare("SELECT senha_usuario FROM tbUsuarios WHERE email_usuario = ?");
+        $stmt_check = $conn->prepare("SELECT nome_usuario, senha_usuario FROM tbUsuarios WHERE email_usuario = ?");
         $stmt_check->bind_param("s", $email);
         $stmt_check->execute();
         $stmt_check->store_result();
 
         if ($stmt_check->num_rows > 0) {
             // Usuário encontrado, verificar senha
-            $stmt_check->bind_result($senha_hash);
+            $stmt_check->bind_result($nome_usuario, $senha_hash);
             $stmt_check->fetch();
 
             if (password_verify($senha, $senha_hash)) {
-                $alert_message = "Login bem-sucedido. Bem-vindo!";
+                // Login bem-sucedido, redirecionar usuário para usuario.php
+                header("Location: usuario.php?nome=" . urlencode($nome_usuario) . "&email=" . urlencode($email));
+                exit(); // Garantir que o script seja interrompido após o redirecionamento
             } else {
                 $alert_message = "Senha incorreta. Tente novamente.";
             }
@@ -58,6 +60,8 @@ $conn->close();
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="src/css/css-create-account.css">
+    <script src="src/js/menu.js" defer></script>
+    <link rel="stylesheet" href="src/css/header.css">
     <title>AquaPulse Entrar</title>
 
     <!-- Script para exibir o alerta -->
@@ -73,6 +77,22 @@ $conn->close();
 </head>
 
 <body>
+<header>
+        <div id="logo-container">
+            <img id="logo" src="src/image/logo.png" alt="Logo AquaPulse">
+            <h1 id="titulo-principal">AquaPulse</h1>
+        </div>
+        <div id="menu-links">
+            <a class="header-links" href="#sobre-produto">Sobre</a>
+            <a class="header-links" href="produtos.html">Produto</a>
+            <a class="header-links" href="suporte.php">Suporte</a>
+            <a class="header-links" href="perguntas-frequentes.html">FAQ</a>
+        </div>
+        <div id="menu-icon-container">
+            <i class="bi bi-list" id="menu-icon"></i>
+        </div>
+    </header>
+    
     <main>
         <form action="" method="POST">
             <h1>Entrar</h1>
@@ -84,7 +104,7 @@ $conn->close();
             <input id="senha-usuario" type="password" name="senha" placeholder="Digite sua senha..." minlength="8" required><br><br>
 
             <div class="box-btn">
-                <a href="#">Não tem uma conta?</a>
+                <a href="create_account.php">Não tem uma conta?</a>
                 <button type="submit">Ok!</button>
             </div>
         </form>
