@@ -59,6 +59,7 @@ $conn->close();
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="src/css/header.css">
     <link rel="stylesheet" href="src/css/footer.css">
+    <script src="src/js/menu.js" defer></script>
     <style>
         body {
             font-family: Arial, sans-serif;
