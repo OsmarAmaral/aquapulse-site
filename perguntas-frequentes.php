@@ -222,7 +222,7 @@ $conn->close();
             <a class="header-links" href="index.html">Sobre</a>
             <a class="header-links" href="produtos.html">Produto</a>
             <a class="header-links" href="suporte.php">Suporte</a>
-            <a class="header-links" href="perguntas-frequentes.html">FAQ</a>
+            <a class="header-links" href="perguntas-frequentes.php">FAQ</a>
         </div>
         <div id="menu-icon-container">
             <i class="bi bi-list" id="menu-icon"></i>
