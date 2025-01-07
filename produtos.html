@@ -10,9 +10,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- CSS externo do projeto -->
-    <link rel="stylesheet" href="/src/css/header.css">
-    <link rel="stylesheet" href="/src/css/produts.css">
-    <link rel="stylesheet" href="/src/css/footer.css">
+    <link rel="stylesheet" href="src/css/header.css">
+    <link rel="stylesheet" href="src/css/produts.css">
+    <link rel="stylesheet" href="src/css/footer.css">
+    <script src="src/js/menu.js" defer></script>
 
     <style>
         /* Reset & Box-sizing */
@@ -36,10 +37,6 @@
             scroll-behavior: smooth;
         }
         /* --------- HEADER --------- */
-         header {
-            background-color: #0d0d0d !important;
-            padding-left: 10px; /* Adicionando espaço à esquerda */
-        }
         
         /* --------- SEÇÕES --------- */
         
@@ -363,16 +360,16 @@
 </head>
 
 <body>
-     <header>
+    <header>
         <div id="logo-container">
             <img id="logo" src="src/image/logo.png" alt="Logo AquaPulse">
             <h1 id="titulo-principal">AquaPulse</h1>
         </div>
         <div id="menu-links">
-            <a class="header-links" href="#sobre-produto">Sobre</a>
+            <a class="header-links" href="index.html">Sobre</a>
             <a class="header-links" href="produtos.html">Produto</a>
-            <a class="header-links" href="suporte.html">Suporte</a>
-            <a class="header-links" href="perguntas-frequentes.html">FAQ</a>
+            <a class="header-links" href="suporte.php">Suporte</a>
+            <a class="header-links" href="perguntas-frequentes.php">FAQ</a>
         </div>
         <div id="menu-icon-container">
             <i class="bi bi-list" id="menu-icon"></i>
@@ -400,7 +397,7 @@
                 </div>
             </div>
             <div class="image-container">
-                <img src="/src/image/produto1.png" alt="Imagem do Irrigador Pivot Central">
+                <img src="src/image/produto1.png" alt="Imagem do Irrigador Pivot Central">
             </div>
         </div>
     </div>
@@ -409,7 +406,7 @@
     <div class="section">
         <div class="section-content">
             <div class="image-container">
-                <img src="/src/image/produto2.png" alt="Imagem do Irrigador Linear">
+                <img src="src/image/produto2.png" alt="Imagem do Irrigador Linear">
             </div>
             <div class="content">
                 <h1>Irrigador Linear</h1>
@@ -452,7 +449,7 @@
                 </div>
             </div>
             <div class="image-container">
-                <img src="/src/image/produto3.png" alt="Imagem do Irrigador Gotejamento">
+                <img src="src/image/produto3.png" alt="Imagem do Irrigador Gotejamento">
             </div>
         </div>
     </div>
@@ -463,7 +460,7 @@
     <div class="product-grid">
         <!-- Cópia do primeiro produto -->
         <div class="product-item">
-            <img src="/src/image/produto1.png" alt="Irrigador Pivot Central">
+            <img src="src/image/produto1.png" alt="Irrigador Pivot Central">
             <h3>Irrigador Pivot Central</h3>
             <a href="#" class="saiba-mais" onclick="event.preventDefault(); openModal('pivotCentral');">
                Saiba Mais
@@ -471,7 +468,7 @@
         </div>
         <!-- Cópia do segundo produto -->
         <div class="product-item">
-            <img src="/src/image/produto2.png" alt="Irrigador Linear">
+            <img src="src/image/produto2.png" alt="Irrigador Linear">
             <h3>Irrigador Linear</h3>
             <a href="#" class="saiba-mais" onclick="event.preventDefault(); openModal('linear');">
                Saiba Mais
@@ -479,7 +476,7 @@
         </div>
         <!-- Cópia do terceiro produto -->
         <div class="product-item">
-            <img src="/src/image/produto3.png" alt="Irrigador Gotejamento">
+            <img src="src/image/produto3.png" alt="Irrigador Gotejamento">
             <h3>Irrigador Gotejamento</h3>
             <a href="#" class="saiba-mais" onclick="event.preventDefault(); openModal('gotejamento');">
                Saiba Mais
@@ -728,7 +725,6 @@
             }
         });
     </script>
-    <script src="/src/js/menu.js" defer></script>
 </body>
 
 </html>
