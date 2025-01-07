@@ -1,0 +1,177 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+    background: linear-gradient(135deg, #121212, #1C1C1C);
+    color: #FFFFFF;
+}
+
+/* Header */
+header {
+    width: 100%;
+    background: #1C1C1C;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    border-bottom: 2px solid green;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: green;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+/* Container */
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    height: 90vh;
+}
+
+/* Main layout */
+main {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #1E1E1E;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+    width: 90%;
+    height: 80vh;
+    padding: 20px;
+    flex-wrap: wrap;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* main:hover {
+     transform: translateY(-10px);
+    box-shadow: 0 8px 30px rgba(0, 255, 136, 0.4);
+} */
+
+/* Box */
+.box {
+    background: #292929;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    height: 70vh;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    overflow-y: auto; /* Garantir que conteúdo extra seja rolável */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 255, 136, 0.6);
+}
+
+/* Specific box adjustments */
+#box-1 img {
+    border-radius: 50%;
+    border: 4px solid green;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    width: 120px;
+    height: 120px;
+}
+
+#box-1 p {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #D1D1D1;
+    text-align: center;
+}
+
+/* Inputs and Labels in Box 2 */
+#box-2 label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #FFFFFF;
+    margin-bottom: 5px;
+}
+
+#box-2 input {
+    width: 90%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid #333;
+    border-radius: 5px;
+    background: #2D2D2D;
+    color: #FFFFFF;
+    outline: none;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+#box-2 input:focus {
+    border-color: green;
+    box-shadow: 0 0 10px green;
+}
+
+#box-2 input::placeholder {
+    color: #AAA;
+    font-style: italic;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+    }
+
+    .box {
+        max-width: 90%;
+        height: 60vh; /* Ajustar altura para telas menores */
+    }
+}
+
+/* Botão Estilizado */
+button {
+    padding: 15px 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #FFFFFF;
+    background: linear-gradient(135deg, #00A86B, #007A50);
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+/* Efeito ao passar o mouse */
+button:hover {
+    background: linear-gradient(135deg, #007A50, #005C3A);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 255, 136, 0.5);
+}
+
+/* Efeito ao pressionar */
+button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 5px rgba(0, 255, 136, 0.3);
+}
+
+/* Foco no botão */
+button:focus {
+    outline: 2px solid #00A86B;
+    outline-offset: 4px;
+}
