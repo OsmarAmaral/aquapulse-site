@@ -15,6 +15,7 @@ $email = isset($_GET['email']) ? addslashes($_GET['email']) : '';
     <meta charset="utf-8">
     <link rel="stylesheet" href="src/css/usuario.css">
     <link rel="stylesheet" href="src/css/header.css">
+    <link rel="stylesheet" href="src/css/footer.css">
     <title>AquaPulse 2057</title>
 </head>
 
@@ -57,6 +58,19 @@ $email = isset($_GET['email']) ? addslashes($_GET['email']) : '';
             </div>
         </main>
     </div>
+    <footer id="footer">
+        <p style="color: white"><a href="#" class="links-footer">Termos de uso</a> | <a href="#" class="links-footer">Políticas de Privacidade</a></p>
+        <div id="redes-sociais" style="margin: 10px;">
+            <a href="#" class="footer-icons"><i class="bi bi-google"></i></a>
+            <a href="#" class="footer-icons"><i class="bi bi-linkedin"></i></a>
+            <a href="#" class="footer-icons"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="footer-icons"><i class="bi bi-github"></i></a>
+            <a href="#" class="footer-icons"><i class="bi bi-youtube"></i></a>
+        </div>
+        <p style="color: white;">
+            © 2024 AquaPulse. Todos os direitos reservados.
+        </p>
+    </footer>
 </body>
     <script>
         // Dados do usuário vindos do PHP
