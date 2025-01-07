@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "AquaPulse"; // Nome do banco de dados
+$dbname = "AquaPulse";
 
 // Criar conexão
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -13,7 +13,8 @@ if ($conn->connect_error) {
     die("Conexão falhou: " . $conn->connect_error);
 }
 
-$alert_message = ""; // Variável para armazenar mensagens de alerta
+$alert_message = ""; // Variável para mensagens de alerta
+$nome = $email = ""; // Inicialização de variáveis
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Coletando dados do formulário
@@ -39,7 +40,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                            VALUES ('$nome', '$email', '$senha_hash')";
 
             if ($conn->query($sql_insert) === TRUE) {
-                $alert_message = "Cadastro realizado com sucesso!";
+                // Redirecionar para a página de boas-vindas
+                header("Location: usuario.php?nome=" . urlencode($nome) . "&email=" . urlencode($email));
+                exit();
             } else {
                 $alert_message = "Erro: " . $sql_insert . "<br>" . $conn->error;
             }
@@ -57,42 +60,31 @@ $conn->close();
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="src/css/css-create-account.css">
+    <link rel="stylesheet" href="src/css/create_account.css">
+    <script src="src/js/usuario.js"></script>
     <title>AquaPulse Criar Conta</title>
-
-    <!-- Script para exibir o alerta -->
-    <script>
-        window.onload = function () {
-            var alertMessage = "<?php echo $alert_message; ?>";
-            if (alertMessage) {
-                alert(alertMessage); // Exibe o alerta com a mensagem
-                console.log(alertMessage); // Exibe a mensagem no console
-            }
-        };
-    </script>
 </head>
 
 <body>
     <main>
         <form action="" method="POST">
-
             <h1>Criar Conta</h1>
 
             <label for="nome-usuario">Nome:</label><br>
-            <input id="nome-usuario" type="text" name="nome" placeholder="digite seu nome..." minlength="3" required><br><br>
+            <input sutofocus id="nome-usuario" type="text" name="nome" placeholder="Digite seu nome..." minlength="3" required><br><br>
 
             <label for="email-usuario">Email:</label><br>
-            <input id="email-usuario" type="email" name="email" placeholder="digite seu email..." required><br><br>
+            <input id="email-usuario" type="email" name="email" placeholder="Digite seu email..." required><br><br>
 
             <label for="senha-usuario">Senha:</label><br>
-            <input id="senha-usuario" type="password" name="senha" placeholder="digite sua senha..." minlength="8" required><br><br>
+            <input id="senha-usuario" type="password" name="senha" placeholder="Digite sua senha..." minlength="8" required><br><br>
 
             <label for="confirmar-senha">Confirmar senha:</label><br>
-            <input id="confirmar-senha" type="password" name="confirmar-senha" placeholder="digite sua senha novamente..." minlength="8" required><br><br>
+            <input id="confirmar-senha" type="password" name="confirmar-senha" placeholder="Digite sua senha novamente..." minlength="8" required><br><br>
 
             <div class="box-btn">
-                <a href="#">Já tem uma conta?</a>
-                <button type="submit">Ok!</button>
+                <a href="login.php">Já tem uma conta?</a>
+                <button type="submit">Cadastrar</button>
             </div>
         </form>
     </main>
