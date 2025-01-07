@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Expandido</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Menu Expandido</title>
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    </head>
+    <body>
+    
+    <div id="menu-expandido" class="menu-expandido">
+        <div class="menu-item">
+            <img src="icon1.png" alt="Icon 1" class="menu-icon">
+            <p class="menu-text">Mensagem 1</p>
+        </div>
+        <div class="menu-item">
+            <img src="icon2.png" alt="Icon 2" class="menu-icon">
+            <p class="menu-text">Mensagem 2</p>
+        </div>
+        <div class="menu-item">
+            <img src="icon3.png" alt="Icon 3" class="menu-icon">
+            <p class="menu-text">Mensagem 3</p>
+        </div>
+        <div class="menu-item">
+            <img src="icon4.png" alt="Icon 4" class="menu-icon">
+            <p class="menu-text">Mensagem 4</p>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+    </body>
+    </html>
+    
+</head>
+<body>
+
+<div id="menu-expandido" class="menu-expandido">
+    <div class="menu-item">
+        <img src="icon1.png" alt="Icon 1" class="menu-icon">
+        <p class="menu-text">Mensagem 1</p>
+    </div>
+    <div class="menu-item">
+        <img src="icon2.png" alt="Icon 2" class="menu-icon">
+        <p class="menu-text">Mensagem 2</p>
+    </div>
+    <div class="menu-item">
+        <img src="icon3.png" alt="Icon 3" class="menu-icon">
+        <p class="menu-text">Mensagem 3</p>
+    </div>
+    <div class="menu-item">
+        <img src="icon4.png" alt="Icon 4" class="menu-icon">
+        <p class="menu-text">Mensagem 4</p>
+    </div>
+</div>
+<script>
+    // Função para alternar a visibilidade do menu expandido
+function toggleMenu() {
+    const menu = document.getElementById('menu-expandido');
+    const icon = document.querySelector('.navbar-toggler-icon');
+
+    menu.classList.toggle('show');
+    if (menu.classList.contains('show')) {
+        icon.style.transform = 'rotate(45deg)';
+        icon.style.transition = 'transform 0.3s ease';
+    } else {
+        icon.style.transform = 'rotate(0deg)';
+    }
+}
+
+</script>
+<script src="script.js"></script>
+</body>
+</html>
