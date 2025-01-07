@@ -61,6 +61,7 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="src/css/css-create-account.css">
     <script src="src/js/menu.js" defer></script>
+    <link rel="stylesheet" href="create_account.php">
     <link rel="stylesheet" href="src/css/header.css">
     <title>AquaPulse Entrar</title>
 
