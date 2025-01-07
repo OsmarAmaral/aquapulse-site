@@ -15,19 +15,25 @@ $email = isset($_GET['email']) ? addslashes($_GET['email']) : '';
     <meta charset="utf-8">
     <link rel="stylesheet" href="src/css/usuario.css">
     <link rel="stylesheet" href="src/css/header.css">
+    <script src="src/js/menu.js" defer></script>
+
     <title>AquaPulse 2057</title>
 </head>
 
 <body>
-    <header>
-        <h1 id="titulo-principal">AquaPulse</h1>
-        <div>
-            <a class="header-links" href="index.html">Inicio</a>
-            <a class="header-links" href="#sobre-produto">Produto</a>
-            <a class="header-links" href="#footer">Suporte</a>
+<header>
+        <div id="logo-container">
+            <img id="logo" src="src/image/logo.png" alt="Logo AquaPulse">
+            <h1 id="titulo-principal">AquaPulse</h1>
         </div>
-        <div>
-            <a href="login.php"><img src="src/image/logo.png" alt="foto de perfil" style="height: 50px;"></a>
+        <div id="menu-links">
+            <a class="header-links" href="index.html">Sobre</a>
+            <a class="header-links" href="produtos.html">Produto</a>
+            <a class="header-links" href="suporte.php">Suporte</a>
+            <a class="header-links" href="perguntas-frequentes.php">FAQ</a>
+        </div>
+        <div id="menu-icon-container">
+            <i class="bi bi-list" id="menu-icon"></i>
         </div>
     </header>
     <div id="container" style="height: 90vh;">
