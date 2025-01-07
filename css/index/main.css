@@ -1,0 +1,21 @@
+main {
+    /* height: 90vh; valor original*/
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-image: url('src/image/image_background.jpg'); */
+    /* background-size: cover; */
+    /* filter: brightness(70%); */
+}
+
+.texto-chamativo {
+    font-family: "JetBrains Mono", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    color: #fff;
+    margin: 10px;
+    font-size: 40px;
+    filter: brightness(100%);
+}

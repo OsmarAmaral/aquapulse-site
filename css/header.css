@@ -1,0 +1,62 @@
+/* <header>
+<h1 id="titulo-principal">AquaPulse</h1>
+<div>
+    <a class="header-links" href="#sobre-projeto">Sobre</a>
+    <a class="header-links" href="#sobre-produto">Produto</a>
+    <a class="header-links" href="#footer">Suporte</a>
+</div>
+<div>
+    <a href="login.php"><img src="src/image/logo.png" alt="foto de perfil" style="height: 50px;"></a>
+</div>
+</header> */
+
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+}
+
+#titulo-principal {
+    font-family: "Bebas Neue", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #fff;
+    font-size: 35px;
+}
+
+.header-links {
+    text-decoration: none;
+    font-family: "Bebas Neue", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #fff;
+    margin: 15px;
+    font-size: 18px;
+    display: inline-block;
+    padding-bottom: 3px;
+    position: relative; 
+    transition: all 0.3s ease;
+}
+
+.header-links::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    background-color: green;
+    transition: width 0.3s ease;
+}
+
+.header-links:hover::after {
+    width: 100%; 
+}
+
+#icone-perfil:hover {
+    color: green;
+}
+

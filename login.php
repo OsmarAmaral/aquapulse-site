@@ -22,21 +22,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (!empty($email) && !empty($senha)) {
         // Consultar usuário pelo e-mail
-        $stmt_check = $conn->prepare("SELECT senha_usuario FROM tbUsuarios WHERE email_usuario = ?");
+        $stmt_check = $conn->prepare("SELECT nome_usuario, senha_usuario FROM tbUsuarios WHERE email_usuario = ?");
         $stmt_check->bind_param("s", $email);
         $stmt_check->execute();
         $stmt_check->store_result();
 
         if ($stmt_check->num_rows > 0) {
             // Usuário encontrado, verificar senha
-            $stmt_check->bind_result($senha_hash);
+            $stmt_check->bind_result($nome_usuario, $senha_hash);
             $stmt_check->fetch();
 
             if (password_verify($senha, $senha_hash)) {
-                // Login bem-sucedido, redirecionar usuário
-                session_start();
-                $_SESSION['usuario_logado'] = $email; // Exemplo de armazenar o e-mail na sessão
-                header("Location: index.html"); // Redirecionar para a página do dashboard
+                // Login bem-sucedido, redirecionar usuário para usuario.php
+                header("Location: usuario.php?nome=" . urlencode($nome_usuario) . "&email=" . urlencode($email));
                 exit(); // Garantir que o script seja interrompido após o redirecionamento
             } else {
                 $alert_message = "Senha incorreta. Tente novamente.";
